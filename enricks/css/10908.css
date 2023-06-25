@@ -1,0 +1,316 @@
+#body h1{color:#39361f;}
+#body h1 a{}
+#body h1 a:hover{}
+#body h2{color:#0d415b;}
+#body h2 a{}
+#body h2 a:hover{}
+#body h3{color:#0d415b;}
+#body h3 a{}
+#body h3 a:hover{}
+#body p{}
+#body a{}
+#body a:hover{}
+#body a:visited{}
+#body a:active{}
+#body small{}
+#body form{}
+#body .navigation-container{overflow:hidden;}
+#body ul.navigation{}
+#body ul.navigation li{}
+#body ul.navigation li a{}
+#body ul.navigation li a:hover{}
+#body ul.navigation li a.selected{}
+#body ul.navigation li a.selected:hover{}
+#body{
+	background-color:#e4e4e4;
+}
+/* ____________________ OuterContainer and Container CSS ______________________________________________________________________________ */
+#body #outerContainer{
+	background-color:#c3cbc8;
+}
+#body #container{
+	background-repeat: repeat-x;
+	background-image: url('./container.jpg');
+	color:#505050;
+}
+#body #container a{color:#0d415b;}
+/* ____________________ Header CSS ______________________________________________________________________________ */
+#body #header{
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-image: url('./header.jpg');
+	background-color:#01070a;
+	border-bottom:10px solid #e2d577;
+	color:#fff;
+	_height:228px;
+	.height:228px; 
+	min-height:228px;
+	margin:0 auto;
+	width:960px;
+	padding:10px;
+}
+#body #header h1, #body #header a{
+	color:#fff;
+	text-transform:uppercase;
+}
+#body #header h2, #body #header h3{
+	color:#fff;
+	font-style:italic;
+}
+#body #header .navigation-container{}
+#body #header ul.navigation {
+	margin:10px 0;
+}
+#body #header ul.navigation li{
+	float:left;  
+}
+#body #header ul.navigation li.first{}
+#body #header ul.navigation li.last{border-right:none;}
+#body #header ul.navigation li a{
+	color:#d9cd66;
+	font-family:"Times New Roman", Times, serif;
+	font-size:17px;
+	display:block; 
+	margin-bottom:10px;
+	padding:0 15px 4px 15px; 
+	text-transform:uppercase;
+}
+#body #header ul.navigation li a span{}
+#body #header ul.navigation li a:hover{
+	border-bottom:4px solid #d9cd66;
+	padding-bottom:0;
+}
+#body #header ul.navigation li a:visited{}
+#body #header ul.navigation li a:hover span{}
+#body #header ul.navigation li a.selected{
+	border-bottom:4px solid #fef28d;
+	color:#fef28d;
+	padding-bottom:0;
+}
+#body #header ul.navigation li a.selected:hover{}
+#body #header ul.navigation li a.selected span{}
+#body #header ul.navigation li a.selected:hover span{}
+/* ____________________ Main / Content Area & Side bar CSS Defaults ______________________________________________________________________________ */
+#body #main{
+	background-color:#fff;
+	margin:0 auto;
+	padding:10px;
+	width:960px;
+}
+#body #content{width:680px;}
+#body #content ul.navigation {
+	margin:10px 0;
+}
+#body #content ul.navigation li{
+	border-right:1px solid;
+	float:left;  
+	margin-bottom:10px;
+}
+#body #content ul.navigation li.first{}
+#body #content ul.navigation li.last{border-right:none;}
+#body #content ul.navigation li a{
+	display:block; 
+	padding:0 10px; 
+}
+#body #content ul.navigation li a span{}
+#body #content ul.navigation li a:hover{}
+#body #content ul.navigation li a:visited{}
+#body #content ul.navigation li a:hover span{}
+#body #content ul.navigation li a.selected{}
+#body #content ul.navigation li a.selected:hover{}
+#body #content ul.navigation li a.selected span{}
+#body #content ul.navigation li a.selected:hover span{}
+#body #sidebar{
+	background-color:#e4e9e7;
+	padding:15px;
+	width:220px; 
+}
+#body #sidebar h2{
+	background-color:#0d415b;
+	color:#fff;
+	padding:6px 10px;
+}
+#body #sidebar p{
+	background-color:#e4e9e7;
+	padding:10px;
+}
+#body #sidebar .navigation-container{
+	position:relative;
+	left:-15px;
+	width:249px;
+}
+#body #sidebar ul.navigation {
+	margin:10px 0;
+	width:100%;
+}
+#body #sidebar ul.navigation li{ }
+#body #sidebar ul.navigation li.first{
+	border-top:4px solid;
+}
+#body #sidebar ul.navigation li.last{}
+#body #sidebar ul.navigation li a{
+	background:#c5cdca;
+	border-bottom:4px solid;
+	display:block; 
+	font-size:16px;
+	padding:8px 15px;
+}
+#body #sidebar ul.navigation li a span{display:block; padding:0 5px}
+#body #sidebar ul.navigation li a:hover{background:none;}
+#body #sidebar ul.navigation li a:visited{}
+#body #sidebar ul.navigation li a:hover span{}
+#body #sidebar ul.navigation li a.selected{background:none;}
+#body #sidebar ul.navigation li a.selected:hover{background:#c5cdca;}
+#body #sidebar ul.navigation li a.selected span{}
+#body #sidebar ul.navigation li a.selected:hover span{}
+/* ____________________ Footer CSS ______________________________________________________________________________ */
+#body #footer{
+	background-color:#e7e7e7;
+	border-bottom:20px solid #0d415b;
+	min-height:30px;
+	margin:0 auto;
+	padding:10px;
+	width:960px;
+} 
+#body #footer ul.navigation {
+	margin:10px 0;
+}
+#body #footer ul.navigation li{
+	border-right:1px solid;
+	margin-bottom:10px;
+	float:left;  
+}
+#body #footer ul.navigation li.first{}
+#body #footer ul.navigation li.last{border-right:none;}
+#body #footer ul.navigation li a{
+	display:block; 
+	padding:0 10px; 
+}
+#body #footer ul.navigation li a span{}
+#body #footer ul.navigation li a:hover{}
+#body #footer ul.navigation li a:visited{}
+#body #footer ul.navigation li a:hover span{}
+#body #footer ul.navigation li a.selected{}
+#body #footer ul.navigation li a.selected:hover{}
+#body #footer ul.navigation li a.selected span{}
+#body #footer ul.navigation li a.selected:hover span{}
+/* ____________________ Layout Specific CSS ______________________________________________________________________________ */
+/*----LAYOUT 1 Column----*/
+#body.layout1c #content{
+	width:auto;
+}
+#body.layout1c #sidebar{
+	min-height:100px;
+	width:auto;
+}
+#body.layout1c #sidebar .navigation-container{
+	position:static;
+	width:auto;
+}
+#body.layout1c #sidebar ul.navigation {
+	margin:10px 0;
+}
+#body.layout1c #sidebar ul.navigation li{
+	float:left;  
+	border-right:1px solid;
+	margin-bottom:10px;
+}
+#body.layout1c #sidebar ul.navigation li.first{border-top:none;}
+#body.layout1c #sidebar ul.navigation li.last{border-right:none;}
+#body.layout1c #sidebar ul.navigation li a{
+	border-bottom:none;
+	display:block; 
+	font-size:14px;
+	padding:4px 10px; 
+}
+#body.layout1c #sidebar ul.navigation li a span{}
+#body.layout1c #sidebar ul.navigation li a:hover{}
+#body.layout1c #sidebar ul.navigation li a:visited{}
+#body.layout1c #sidebar ul.navigation li a:hover span{}
+#body.layout1c #sidebar ul.navigation li a.selected{}
+#body.layout1c #sidebar ul.navigation li a.selected:hover{}
+#body.layout1c #sidebar ul.navigation li a.selected span{}
+#body.layout1c #sidebar ul.navigation li a.selected:hover span{}
+#body.layout1c #sidebar #footer{}
+/*----LAYOUT 2 Column Left ----*/
+#body.layout2cl #content{}
+#body.layout2cl #sidebar{}
+#body.layout2cl #sidebar p{padding:5px;}
+#body.layout2cl #footer{}
+/*----LAYOUT 2 Column Right----*/
+#body.layout2cr #content{}
+#body.layout2cr #sidebar{}
+#body.layout2cr #sidebar p{padding:5px;}
+#body.layout2cr #footer{}
+/* ____________________ Module Specific Styling ______________________________________________________________________________ */
+#body .addOnBorder{} 
+#body .addOnBorderBottom{} 
+#body .addOnBorderTop{} 
+#body .addOnGradientTop{} 
+#body .addOnGradientBottom{}
+#body .addOnShadowBox{} 
+#body .addOnShadowBoxSmall{} 
+#body .addOnTableHeading{}
+#body .addOnTableHeadingBg{} 
+#body .addOnTableRowBg{} 
+#body .addOnTableRowAltBg{}
+#body .addOnTableColumnBg{} 
+#body .addOnTableColumnAltBg{}
+#body .addOnBackgroundImage{}
+#body .addOnHeadline{}
+#body .addOnSubHead{}
+#body .addOnSubH3{}
+#body .addOnSubH4{}
+#body .addOnPlainText{}
+#body .addOnBasicLink{}
+#body .addOnSmallText{}
+#body .addOnBackground{}
+#body .addOnShadedText{}
+#body .addOnAccentText{}
+#body .addOnSectionHead{}
+#body .addOnMiniNavBox{}
+#body .addOnButton{background:#0d415b; border:none; color:#fff; text-shadow:1px 1px 2px #000;}
+
+/* ____________________ mobile layout ______________________________________________________________________________ */
+@media screen and (max-device-width:480px), screen and (max-width:600px){
+/* adds mobile only background */
+#body.mobileLayout{background:url(,/mBG.jpg) no-repeat #01070A}
+
+/* style for menu button at top right of page */
+#body.mobileLayout #mNavLink{background:#C5CDCA; color:#0D415B; border:1px solid #0D415B}
+
+/* styling for navigation menu to be placed at bottom of page */
+#body.mobileLayout .mobileNav ul{}
+#body.mobileLayout .mobileNav ul li a{background:#C5CDCA; color:#0D415B}
+#body.mobileLayout .mobileNav ul li a:hover, #body.mobileLayout .mobileNav ul li a.selected{background:#0D415B; color:#fff}
+#body.mobileLayout .mobileNav ul li.first a{}
+#body.mobileLayout .mobileNav ul li.last a{}
+
+/* mobile layout/content styling */
+#body.mobileLayout #header{border-bottom:4px solid #E2D577; padding-top:20px}
+#body.mobileLayout #main{background:#fff}
+#body.mobileLayout #content{margin-bottom:15px}
+#body.mobileLayout #sidebar{background:#E4E9E7; margin-bottom:15px; padding-top:15px}
+#body.mobileLayout #footer{background:#01070A; color:#eee}
+#body.mobileLayout #footer a{color:#fff}
+}
+/*
+     FILE ARCHIVED ON 06:34:21 Jun 06, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:18:28 Jun 25, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 269.553
+  exclusion.robots: 0.102
+  exclusion.robots.policy: 0.091
+  cdx.remote: 0.063
+  esindex: 0.01
+  LoadShardBlock: 62.278 (3)
+  PetaboxLoader3.datanode: 46.207 (4)
+  PetaboxLoader3.resolve: 100.979 (2)
+  load_resource: 111.223
+*/

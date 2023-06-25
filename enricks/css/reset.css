@@ -1,0 +1,219 @@
+/* reset browser defaults */
+html,body,object,iframe,h1,h2,h3,h4,p,img,li,fieldset,form{border:0;margin:0;padding:0}
+html,body{height:100%;min-height:100%}
+:focus{outline:none}
+
+/* fonts */
+@font-face {
+    font-family:'GoodDogRegular';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/GoodDog-webfont.eot');
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/GoodDog-webfont.eot#iefix') format('embedded-opentype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/GoodDog-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/GoodDog-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/GoodDog-webfont.svg#GoodDogRegular') format('svg');
+    font-weight:normal; font-style:normal
+}
+
+@font-face {
+    font-family:'BPDietUltraBlack';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/BPdiet-webfont.eot');
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/BPdiet-webfont.eot#iefix') format('embedded-opentype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/BPdiet-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/BPdiet-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/BPdiet-webfont.svg#BPDietUltraBlack') format('svg');
+    font-weight:normal; font-style:normal
+}
+
+@font-face {
+    font-family:'AirstreamRegular';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Airstream-webfont.eot');
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Airstream-webfont.eot#iefix') format('embedded-opentype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Airstream-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Airstream-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Airstream-webfont.svg#AirstreamRegular') format('svg');
+    font-weight:normal; font-style:normal
+}
+
+@font-face{
+    font-family:'KingthingsPetrockRegular';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Kingthings_Petrock-webfont.eot') format('eot'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Kingthings_Petrock-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Kingthings_Petrock-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Kingthings_Petrock-webfont.svg#webfontg8Yq9QSK') format('svg');
+    font-weight:normal;font-style:normal
+}
+
+@font-face{
+    font-family:'ChunkFiveRegular';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Chunkfive-webfont.eot') format('eot'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Chunkfive-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Chunkfive-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/Chunkfive-webfont.svg#webfont90E2uSjN') format('svg');
+    font-weight:normal; font-style:normal
+}
+
+@font-face{
+    font-family:'BoycottRegular';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/BOYCOTT_-webfont.eot') format('eot'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/BOYCOTT_-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/BOYCOTT_-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/BOYCOTT_-webfont.svg#webfont6HkRQgc7') format('svg');
+    font-weight:normal; font-style:normal
+}
+
+@font-face{
+    font-family:'LeagueGothicRegular';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/League_Gothic-webfont.eot') format('eot'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/League_Gothic-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/League_Gothic-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/League_Gothic-webfont.svg#webfontFHzvtkso') format('svg');
+    font-weight:normal; font-style:normal
+}
+
+@font-face{
+	font-family:'DestroyRegular';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/DESTROY_-webfont.eot');
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/DESTROY_-webfont.eot#iefix') format('eot'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/DESTROY_-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/DESTROY_-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/DESTROY_-webfont.svg#webfontT1nOpE1i') format('svg');
+    font-weight:normal; font-style:normal
+}
+
+@font-face {
+    font-family:'YanoneKaffeesatzLight';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/YanoneKaffeesatz-Light-webfont.eot');
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/YanoneKaffeesatz-Light-webfont.eot#iefix') format('embedded-opentype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/YanoneKaffeesatz-Light-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/YanoneKaffeesatz-Light-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/YanoneKaffeesatz-Light-webfont.svg#YanoneKaffeesatzLight') format('svg');
+    font-weight:normal; font-style:normal
+}
+
+@font-face {
+    font-family:'PrintClearlyRegular';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/PrintClearly-webfont.eot');
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/PrintClearly-webfont.eot#iefix') format('embedded-opentype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/PrintClearly-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/PrintClearly-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/PrintClearly-webfont.svg#PrintClearlyRegular') format('svg');
+    font-weight:normal; font-style:normal
+}
+
+@font-face {
+    font-family:'OrbitronMedium';
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/orbitron-medium-webfont.eot');
+    src:url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/orbitron-medium-webfont.eot#iefix') format('embedded-opentype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/orbitron-medium-webfont.woff') format('woff'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/orbitron-medium-webfont.ttf') format('truetype'),
+        url('/web/20180624161415im_/http://enricks.angelfire.com/adm/fonts/orbitron-medium-webfont.svg#OrbitronMedium') format('svg');
+    font-weight:normal; font-style:normal
+}
+
+/* basic styling for all site builder templates */
+#body h1{font-size:22px;line-height:1.2em}
+#body h2{font-size:18px;line-height:1.2em}
+#body h3{font-size:14px;font-weight:bold;line-height:1.2em}
+#body p{font-size:12px;line-height:1.8em; text-align:left}
+#body a{text-decoration:underline}
+#body a:hover, #body a:active{text-decoration:none}
+#body a:visited{}
+#body small{font-size:10px}
+#body form{font-size:12px}
+#body ul.navigation{clear:both; margin:0; padding:0}
+#body ul.navigation li{list-style-type:none}
+#body ul.navigation li a{text-decoration:none}
+#body{background-color:#fff;font-family:Arial, Helvetica, sans-serif; font-size:12px; height:auto; .height:100%; line-height:18px; margin:0; padding:0;	text-align:left}
+#body #header ul.navigation{}
+#outerContainer, #container{}
+#main, #footer{clear:both; height:auto;}
+#content, #sidebar{height:auto; _height:400px; margin:0; min-height:400px; padding:0; text-align:left}
+#content .blogSub .pad10{padding:10px 0} /* Removes side padding from modules placed in content area */
+div.clr, br.clr, .clr{clear:both; height:0; visibility:hidden}
+/* Initial Module Styles */ 
+.fbLikeContainer{background:rgba(255, 255, 255, .6); padding:10px}
+.addOnBorder{border:1px solid #000} 
+.addOnBorderBottom{border-bottom:1px solid #000} 
+.addOnBorderTop{border-top:1px solid #000} 
+.addOnGradientTop{} 
+.addOnGradientBottom{}
+.addOnShadowBox{background-color:#000} 
+.addOnShadowBoxSmall{background-color:#999} 
+.addOnTableHeading{}
+.addOnTableHeadingBg{background-color:#ccc} 
+.addOnTableRowBg{background-color:#ddd} 
+.addOnTableRowAltBg{background-color:#eee}
+.addOnTableColumnBg{background-color:#aaa} 
+.addOnTableColumnAltBg{background-color:#fff}
+.addOnBackgroundImage{}
+.addOnHeadline{font-size:20px}
+.addOnSubHead{font-size:18px}
+.addOnSubH3{font-size:16px}
+.addOnSubH4{font-size:14px}
+.addOnPlainText{font-size:12px}
+.twitter_update_list li a.addOnBasicLink{color:#086392}
+.addOnSmallText{font-size:10px}
+.addOnBackground{background:inherit}
+.addOnShadedText{font-size:12px; background-color:#ccc}
+.addOnAccentText{font-size:12px; background-color:#999}
+.addOnSectionHead{font-size:16px; border-bottom:1px solid #000}
+.addOnMiniNavBox{background-color:#ccc; border:1px solid #999; color:#292929; font-size:12px; padding:2px}
+.addOnButton{background-color:#1F4A6B; background-image:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/media/bg_button.gif); background-repeat:repeat-x; border:solid 2px #2D6B9A; color:#fff; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; height:22px; margin:auto; padding-top:0; text-align:center}
+/* changes the layout positions of divs in different layout templates */
+#body.layout2cl #sidebar{float:left}
+#body.layout2cl #content{float:right}
+#body.layout2cr #sidebar{float:right}
+#body.layout2cr #content{float:left}
+#body.layout1c #sidebar, #body.layout1c #content{float:none}
+#body.layout1c #sidebar ul.navigation{overflow:hidden;}
+
+/* classes that need to be carried over from the editor to live sites */
+.float_left, .lft{float:left}
+.float_right{float:right}
+
+/* mobilize sites */
+.mobileNavArea, #mNavLink{display:none}
+
+@media screen and (max-device-width:480px), screen and (max-width:600px){
+.mobileNavArea, #mNavLink{display:block}
+
+body.mobileLayout, .mobileLayout#body, .mobileLayout #outerContainer, .mobileLayout #container{border:none; height:auto; margin:0 auto; min-height:50px; padding:0; width:auto}
+
+.mobileLayout #header, .mobileLayout #main, .mobileLayout #content, .mobileLayout #sidebar, .mobileLayout #footer{border:none; height:auto; margin:0 auto;  min-height:50px; padding:0; width:auto}
+
+.mobileLayout p, .mobileLayout h1, .mobileLayout h2, .mobileLayout h3, .mobileLayout img, .mobileLayout #header p, .mobileLayout #content p, .mobileLayout #sidebar p, .mobileLayout #footer p{border:none; float:none; margin:0; padding:0; word-wrap:break-word}
+
+.mobileLayout p{font-size:12px}
+
+.mobileLayout #header, .mobileLayout #content, .mobileLayout #sidebar, .mobileLayout #footer{padding:10px 15px}
+.mobileLayout #content{border-bottom:2px solid}
+.mobileLayout .navigation-container{display:none} 
+
+.mobileLayout #outerContainer{position:relative}
+.mobileLayout #mNavLink{background:#ccc; border:1px solid #000; border-radius:6px; display:block; font-family:Arial, Helvetica, sans-serif; font-size:13px; padding:5px; position:absolute; right:5px; text-decoration:none; top:5px}
+.mobileLayout .mobileNavArea{display:block}
+.mobileLayout .mobileNavArea ul{font-family:Arial, Helvetica, sans-serif; margin:0; padding:0}
+.mobileLayout .mobileNavArea ul li{border-bottom:1px solid; padding:6px 15px 4px}
+.mobileLayout .mobileNavArea ul li.first{border-top:1px solid}
+.mobileLayout .mobileNavArea ul li a{display:block; font-size:16px; text-decoration:none}
+}
+/*
+     FILE ARCHIVED ON 16:14:15 Jun 24, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:18:29 Jun 25, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 62.405
+  exclusion.robots: 0.075
+  exclusion.robots.policy: 0.065
+  cdx.remote: 0.056
+  esindex: 0.009
+  LoadShardBlock: 35.767 (3)
+  PetaboxLoader3.datanode: 608.396 (5)
+  load_resource: 663.688 (2)
+  PetaboxLoader3.resolve: 85.482 (2)
+*/

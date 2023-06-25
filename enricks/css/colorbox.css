@@ -1,0 +1,208 @@
+/*  ColorBox Core Style
+    The following rules are the styles that are consistant between themes.
+    Avoid changing this area to maintain compatability with future versions of ColorBox.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:99000; /*overflow:hidden*/}
+#cboxOverlay{position:fixed; width:100%; height:100%}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left}
+#cboxContent{position:relative; /*overflow:hidden*/}
+#cboxLoadedContent{overflow:auto}
+#cboxLoadedContent iframe{display:block; width:100%; height:100%; border:0}
+#cboxTitle{margin:0}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer}
+
+/*  Example user style
+    The following rules are ordered and tabbed in a way that represents the order/nesting of the generated HTML, so that the structure easier to understand.
+*/
+#cboxOverlay{background:#292929}
+#colorbox{}
+    #cboxTopLeft{width:21px; height:21px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/controls.png) -100px 0 no-repeat}
+    #cboxTopRight{width:21px; height:21px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/controls.png) -129px 0 no-repeat}
+    #cboxBottomLeft{width:21px; height:21px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/controls.png) -100px -29px no-repeat}
+    #cboxBottomRight{width:21px; height:21px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/controls.png) -129px -29px no-repeat}
+    #cboxMiddleLeft{width:21px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/controls.png) left top repeat-y}
+    #cboxMiddleRight{width:21px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/controls.png) right top repeat-y}
+    #cboxTopCenter{height:21px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/border.png) 0 0 repeat-x}
+    #cboxBottomCenter{height:21px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/border.png) 0 -29px repeat-x}
+    #cboxContent{background:#fff}
+        #cboxLoadedContent{margin-bottom:28px}
+        #cboxTitle{display:none!important}
+        #cboxCurrent{position:absolute; bottom:3px; left:58px; color:#949494}
+        #cboxSlideshow{position:absolute; bottom:3px; right:30px; color:#0092ef}
+        #cboxPrevious{position:absolute; bottom:0; left:0px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/controls.png) -75px 0px no-repeat; width:25px; height:25px; text-indent:-9999px}
+        #cboxPrevious.hover{background-position:-75px -25px}
+        #cboxNext{position:absolute; bottom:0; left:27px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/controls.png) -50px 0px no-repeat; width:25px; height:25px; text-indent:-9999px}
+        #cboxNext.hover{background-position:-50px -25px}
+        #cboxLoadingOverlay{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/loading_background.png) center center no-repeat}
+        #cboxLoadingGraphic{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/colorbox/loading.gif) center center no-repeat}
+        #cboxClose{position:absolute; top:-27px; right:-27px; background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/sprite_light_box.png) -131px 0 no-repeat; width:50px; height:50px; text-indent:-9999px}
+        #cboxClose.hover{background-position:-131px -50px}
+
+/*  The following fixes png-transparency for IE6.  
+    It is also necessary for png-transparency in IE7 & IE8 to avoid 'black halos' with the fade transition
+    
+    Since this method does not support CSS background-positioning, it is incompatible with CSS sprites.
+    Colorbox preloads navigation hover classes to account for this.
+    
+    !! Important Note:AlphaImageLoader src paths are relative to the HTML document,
+    while regular CSS background images are relative to the CSS document.
+*/
+.cboxIE #cboxTopLeft{background:transparent; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/adm/images/colorbox/internet_explorer/borderTopLeft.png, sizingMethod='scale')}
+.cboxIE #cboxTopCenter{background:transparent; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/adm/images/colorbox/internet_explorer/borderTopCenter.png, sizingMethod='scale')}
+.cboxIE #cboxTopRight{background:transparent; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/adm/images/colorbox/internet_explorer/borderTopRight.png, sizingMethod='scale')}
+.cboxIE #cboxBottomLeft{background:transparent; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/adm/images/colorbox/internet_explorer/borderBottomLeft.png, sizingMethod='scale')}
+.cboxIE #cboxBottomCenter{background:transparent; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/adm/images/colorbox/internet_explorer/borderBottomCenter.png, sizingMethod='scale')}
+.cboxIE #cboxBottomRight{background:transparent; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/adm/images/colorbox/internet_explorer/borderBottomRight.png, sizingMethod='scale')}
+.cboxIE #cboxMiddleLeft{background:transparent; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/adm/images/colorbox/internet_explorer/borderMiddleLeft.png, sizingMethod='scale')}
+.cboxIE #cboxMiddleRight{background:transparent; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/adm/images/colorbox/internet_explorer/borderMiddleRight.png, sizingMethod='scale')}
+
+/*_______ New webon specific css  _______*/
+#cboxContent ul, #cboxContent ol{margin:0; padding:0}
+
+	.float_left, .lft{float:left}
+	.float_right{float:right}
+	.center{text-align:center}
+	.clr{clear:both}
+	.mb10{margin-bottom:10px!important}
+	.ml20{margin-left:20px!important}
+	.mr10{margin-right:10px!important}
+	.mt10{margin-top:10px!important}
+	.bold{font-weight:bold}
+	
+	.whatareyoudoing{color:#600}
+	
+	#colorbox a{color:#54870c;}
+	
+	div.lightbox_header{padding:0 0 0 15px}
+	h1.mod_title{color:#515151; font-size:22px}
+	h2.lightbox_title{color:#54870c; font-size:18px}
+	.regLabel, .lightbox_desc{color:#292929; font-size:12px; line-height:2em; margin:4px 0!important}
+        p.protip { background: #E6FFCC; border: 1px solid #54870c; line-height:17px; padding: 10px; }
+	
+	a.formlink{color:#0f5481; font-size:12px; text-decoration:underline}
+	
+	a.donebutton, a.savebutton, a.cancelbutton, a.publishbutton, a#create_link, a.saveModuleOptions, a.disabled_button{color:#363636!important; display:inline-block; font-size:13px; font-weight:bold; height:32px; line-height:2.4em; margin:0 5px; text-align:center; width:121px}
+		a.donebutton, a.saveModuleOptions, a.savebutton, a.publishbutton, a#create_link, a.disabled_button{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/sprite_light_box.png) no-repeat}
+			a.donebutton:hover, a.saveModuleOptions:hover, a.publishbutton:hover, a.savebutton:hover, a#create_link:hover{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/sprite_light_box.png) 0 -31px no-repeat}
+		a.cancelbutton{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/sprite_light_box.png) 0 -94px no-repeat}
+			a.cancelbutton:hover{background-position:0 -125px}
+			
+		a.disabled_button{background-position:0 -62px}
+			
+	div.icon_area{float:left; margin:0 10px 0 0; width:75px}
+	
+	div.buttonContainer{margin:10px 0 0; text-align:center}
+	
+	form.createLink{width:auto}
+	
+	input#agreement{position:static!important; float:left; margin:2px 10px 0 4px!important}
+	
+	a#createlink, a#removelink{color:#54870c!important; display:block}
+	a#createlink{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/webon30_transparent_sprite.png) no-repeat -99px -187px; padding-left:20px}
+	a#removelink{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/webon30_transparent_sprite.png) no-repeat -99px -162px; padding-left:20px; margin-top:4px}
+	
+/*_______ Photo Album ReOrder specific css  _______*/ 
+	div.photoAdvanced{padding:10px 5px; position:relative; width:650px; z-index:200000}
+	.boxGbNone{background:#d9d9d9; border:1px solid #bab8b8; height:390px; margin:0 auto; padding:5px; overflow-y:auto; width:605px}
+	p#media_status{text-align:center}
+	.placeHolder{background:#fff; border:1px solid #5e5e5e; float:left; height:80px; margin:4px; padding:1px; position:relative; text-align:center; width:105px}
+	a.removePhoto{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/sprite_light_box.png) -144px -103px no-repeat; bottom:-8px; display:block; height:25px; position:absolute; right:-9px; text-indent:-60px; width:25px}	
+		a.removePhoto:hover{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/sprite_light_box.png) -144px -129px no-repeat}
+	
+/*_______ Guestbook & form creator _______*/
+	div.addExisting, div#addExisting, div.addQuestions{padding:10px 5px; overflow-x:hidden; position:relative; width:500px; z-index:200000}
+	a.popupBtn{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/sprite_light_box.png) no-repeat; color:#363636!important; display:block; font-size:13px; font-weight:bold; height:32px; line-height:2.4em; text-align:center; width:121px}
+		.popupBtn:hover{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/sprite_light_box.png) 0 -31px no-repeat}
+	
+	ul.addonOptionList{margin:10px auto; width:500px}
+		ul.addonOptionList li{background:#f4f4f4; margin:0 0 10px; padding:8px 5px}
+		
+	#cboxLoadedContent{overflow-x:hidden!important}
+	
+	div.questionHolder{padding:0!important}
+		div.questionHolder div{margin-bottom:5px}
+		div.alternate{background:none!important}
+		
+	div.main_question_holder{background:#f4f4f4; border:1px solid #bab8b8; margin:0 0 10px 0; overflow-y:auto; padding:20px 10px 10px}
+
+/* from modulemanager css */
+	div.moduleOptions p{margin:0 10px 0 0!important}
+	
+/* from upload_oup=all */
+div#img-container img.mm_uploadButton{height:43px!important; left:63px!important; width:166px!important}	
+
+div#uploadmediaiframediv{left:462px!important; width:166px!important}
+	
+/* from ui.css */
+.myPhotos{margin-bottom:10px; width:591px!important}
+	
+/* oh balls is located in a php file called modulemanager.php because the the current files that make this thing 'work' are crazy and cause curses to be spewed forth */
+div.ohballs{background:#d9d9d9; border:1px solid #bab8b8; margin:10px 0; padding:5px}
+.tobedeletedmuahahaha{border:2px solid #F00}
+
+/* table tool color box (grid_drop2.tpl) */
+div#createTablePopup, div.delete_pad{padding:15px 15px 0}
+form#createTableForm{background:#d9d9d9; border:1px solid #bab8b8; padding:10px; text-align:center; width:507px}
+	form#createTableForm input{margin-right:5px}
+	
+label.table_label{display:block; float:left; width:100px}
+
+/* create / remove links  (link2.tpl) */
+#addLink{font-size:12px; margin:15px} 
+ 	.select_link_type{background:#d9d9d9; border:1px solid #bab8b8; margin:10px 0; padding:5px; width:99%; .width:96%}
+	
+/* jcrop stuffs */
+.jcrop-holder{margin:0 auto}
+img.croploading{background:#fff; margin-top:30%; border:#515151 solid 3px; padding:4px 0; position:relative; z-index:9000}
+
+/* Style for particular colorboxes */
+div#editImage form{font-size:13px; padding:15px}
+div#editImage label{font-size:12px!important; width:45px!important} /*overwritting modulemanager.css line 27 */
+div#editImage div.underline input#configImageLink{margin-left:0!important} /*overwritting modulemanager.css line 26 */
+div.underline p.bold{display:inline!important; margin-right:5px} /*overwritting modulemanager.css line 23 */
+div#editImage div.underline p.advOpts{margin-left:0!important} /*overwritting modulemanager.css line 24 */
+
+div#editAudio form{font-size:13px; padding:15px}
+div#editAudio label{font-size:12px!important; width:45px!important} /*overwritting modulemanager.css line 27 */
+div#editAudio p{margin-top:15px}
+
+/* publish colorbox css */
+.publishOption, .publishOptionSelected{clear:both; font-size:12px; padding:1em; background:#E5E5E5; border:1px solid #CCC; margin:.5em}
+
+.publishOptionSelected{background:#D6E9F8; border:1px solid #ACCCE5}
+
+#publishFlow{padding:10px 5px;}
+	#publishFlow .radioButton{float:left; height:30px; padding:8px}
+	#publishFlow .msg{}
+	#publishFlow .wait{color:#444; font-weight:normal; font-style:italic}	
+	#publishFlow .good{color:#1E6817; font-weight:bold}
+	#publishFlow .bad{color:#FF4B30; font-weight:bold}
+	#publishFlow .labelText{color:#666; font-style:italic}
+	#publishFlow .userText{color:#000; font-style:none}
+	
+/* style for view media manager link from create link color box */
+div#media_item{position:relative}
+a.viewManager{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/sprite_light_box.png) no-repeat; color:#363636!important; display:block; font-size:11px; font-weight:bold; height:32px; line-height:3em; margin:0 5px; text-align:center; width:121px; position:absolute; top:13px; left:224px}		
+			a.viewManager:hover{background:url(/web/20180624161415im_/http://enricks.angelfire.com/adm/images/sprite_light_box.png) 0 -31px no-repeat}
+
+/*
+     FILE ARCHIVED ON 16:14:15 Jun 24, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:18:29 Jun 25, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 117.923
+  exclusion.robots: 0.123
+  exclusion.robots.policy: 0.11
+  RedisCDXSource: 4.417
+  esindex: 0.008
+  LoadShardBlock: 95.679 (3)
+  PetaboxLoader3.datanode: 129.338 (5)
+  load_resource: 864.454 (2)
+  PetaboxLoader3.resolve: 789.432 (2)
+*/

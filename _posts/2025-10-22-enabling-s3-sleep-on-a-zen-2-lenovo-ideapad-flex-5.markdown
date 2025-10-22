@@ -18,10 +18,10 @@ Unfortunately, another major difference is that, out of the box, it only support
 
 However, I was sure that this laptop did in fact support S3 sleep under the hood for two reasons: first, the old laptop, which had the exact same CPU, supported it without any issues; second, the [changelog](https://download.lenovo.com/consumer/mobiles/jccn43ww.txt) for the firmware specifically mentions things about S3.
 
-I tried for a while various methods to enter the advanced settings in the setup utility, but none of the many methods I found worked (the methods vary widely even between different Lenovo laptops), so I decided to look for alternatives. The solution came in form of [this Reddit post](https://www.reddit.com/r/Lenovo/comments/id0457/guide_to_reenable_undervolting_after_latest_bios/).
+I tried for a while various methods to enter the advanced settings in the setup utility, but none of the many methods I found worked (the methods vary widely even between different Lenovo laptops), so I decided to look for alternatives. The solution came in form of [this Reddit post](https://www.reddit.com/r/Lenovo/comments/id0457/guide_to_reenable_undervolting_after_latest_bios/) that I adapted for my situation.
 
 # Warning, warning, warning!
-This is a very risky process! Modifying EFI variables can easily brick your computer. If you don't want to take any risks, and you don't have a way to fix a potential brick, please do not follow this procedure. And especially do not, under any circumstances, for any reason, blindly edit any section of any EFI variable. It's also entirely possible that trying to enable S3 sleep this way may result in a brick on computers that simply don't support it at all. **I am not responsible for any bricks!**
+This is a risky process! Modifying EFI variables can brick your computer. If you don't want to take any risks, or you don't have a way to fix a potential brick, please do not follow this procedure. And especially do not, under any circumstances, for any reason, blindly edit any section of any EFI variable. It's also in the realm of possibility that trying to enable S3 sleep this way may result in a brick on computers that simply don't support it at all. **I am not responsible for any bricks!**
 
 Additional note about hardware support: especially as time goes on, new hardware may not support S3 sleep properly or at all (be it newer architectures, or expansion cards). Even if you manage to enable it, make sure to test if it actually works and your PC functions correctly after waking up.
 
@@ -37,22 +37,22 @@ You may not need some of these tools, or may need additional tools, depending on
 - [RU.EFI](https://ruexe.blogspot.com/), or another way to directly edit EFI variables. *efivar* on Linux probably is more than enough, but I haven't tried it.
 
 # Part I - finding the right variable
-The first thing to do find the EFI variable responsible for disabling S3 sleep; this is usually in the form of an option that toggles between S3 and modern sleep.  
+The first thing to do find the EFI variable responsible for disabling S3 sleep; this is usually, but not always, in the form of an option that toggles between S3 and modern sleep.  
 
 Download the firmware update corresponding to the firmware revision you currently have installed, and extract the raw image from it. In case of Lenovo update packages, you can extract them using *innoextract*: ```innoextract <utility>.exe```  
 This will dump the content of the update utility in a folder, which in my case contained only four files, of which ```JCCN43WW.cap``` was the actual firmware file.
 
 
-Open *UEFITool*, and open the firmware file, and a tree view will appear. Press CTRL+F, and do a text search for potentially related strings (in my case "**modern**" worked, but other options could be "**S3**", "**sleep**", "**standby**", etc). Note that if you need to do another search, it will append the new results to the old ones; if you don't want that to happen right click on the search result and clear them or press CTRL+Backspace.
+Open *UEFITool*, and open the firmware file, and a tree view will appear. Press CTRL+F, and do a text search for potentially related strings (in my case "**modern**" worked, but other options could be "**S3**", "**sleep**", "**standby**", etc). Note that if you then perform another search, it will append the new results to the old ones; if you don't want that to happen right click on the search result and clear them, or press CTRL+Backspace.
 
 Ignore any results that aren't PE32 image sections.  
 Double click on a search result to expand the tree view to it, and on that view right click it and do *Extract as is...*.
 
 ![UEFITool](/images/2025-10-22/uefitool.jpg)
 
-From a terminal, run *IFRExtractor* on the extracted image: ``ifrextractor <PE32_image>```. If it errors out with *No IFR data found*, proceed to extract and run the extractor on another PE32 image. If it succeeds, it will produce a txt file. Open it, search for the same string you did in the previous step, and see if you find the option that manages S3 sleep.
+From a terminal, run *IFRExtractor* on the extracted image: ``ifrextractor <PE32_image>```. If it errors out with *No IFR data found*, proceed with another PE32 image. If it succeeds, it will produce a txt file. Open it, search for the same string you did in the previous step, and see if you find the option that manages S3 sleep.
 
-In my case, the correct "submodule" was *AmdPbsSetupDxe*, and the option I was looking for has a *prompt* string of "**S3/Modern Standby Support**".
+In my case, the correct file was *AmdPbsSetupDxe*, and the option I was looking for has a *prompt* string of "**S3/Modern Standby Support**".
 
 ![Variable](/images/2025-10-22/ifs.jpg)
 

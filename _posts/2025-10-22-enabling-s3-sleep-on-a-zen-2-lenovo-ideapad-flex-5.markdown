@@ -27,7 +27,7 @@ This is a risky process! Modifying EFI variables can brick your computer. If you
 
 Increasingly as time goes on, new hardware may not support S3 sleep properly or at all (be it newer architectures, or expansion cards). Even if you manage to enable it, make sure to test if it actually works and your PC functions correctly after waking up.
 
-This post was made to detail how the process went for my particular computer. If you have another computer, especially if it's has an Intel processor, and/or is from a different generation, the process of finding the corresponding variable may be slightly or very different; I unfortunately can't warn agains the nuances of different computers.
+This post was made to detail how the process went for my computer in particular. If you have another model, and especially if it has an Intel processor and/or is from a different generation, the process of finding the corresponding variable may be slightly or very different.
 
 # Requirements
 You may not need some of these tools, or may need additional tools, depending on how your firmware updates are packaged. On Arch Linux, most are available in the official repositories or the AUR. All the tools have precompiled binaries available in their repos, including ones compiled for Windows.

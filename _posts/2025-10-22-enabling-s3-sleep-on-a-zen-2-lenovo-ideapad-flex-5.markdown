@@ -81,4 +81,4 @@ Remember to enable secure boot again if you disabled it, and check if S3 sleep s
 
 # Failed attempt on a Zen 4 ThinkPad E16 Gen 1
 
-This procedure was also attempted on a ThinkPad E16 Gen 1 with a Ryzen 7730U. While we were able to find the variable (in the exact same location, in fact), RU.EFI failed to write to it with error `0x000008`, which is due to [it being write protected](https://ruexe.blogspot.com/2021/08/errors-for-writing-uefi-variables.html). For now, I don't know what to do in this situation.
+This procedure was also attempted on a ThinkPad E16 Gen 1 with a Ryzen 7730U. While we were able to find the variable (in the exact same location, in fact), RU.EFI failed to write to it with error `0x00000008`, which is due to [it being write protected](https://ruexe.blogspot.com/2021/08/errors-for-writing-uefi-variables.html). For now, I don't know what to do in this situation.

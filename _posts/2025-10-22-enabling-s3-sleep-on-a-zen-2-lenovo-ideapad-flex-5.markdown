@@ -25,7 +25,9 @@ This procedure boils down to finding options that are technically exposed in the
 # Warning, warning, warning!
 This is a risky process! Modifying EFI variables can brick your computer. If you don't want to take any risks, or you don't have a way to fix a potential brick, please do not follow this procedure. And especially do not, under any circumstances, for any reason, blindly edit any section of any EFI variable. It's also in the realm of possibility that trying to enable S3 sleep this way may result in a brick on computers that simply don't support it at all and have a janky firmware. **I am not responsible for any bricks!**
 
-Especially as time goes on, new hardware may not support S3 sleep properly or at all (be it newer architectures, or expansion cards). Even if you manage to enable it, make sure to test if it actually works and your PC functions correctly after waking up.
+Increasingly as time goes on, new hardware may not support S3 sleep properly or at all (be it newer architectures, or expansion cards). Even if you manage to enable it, make sure to test if it actually works and your PC functions correctly after waking up.
+
+This post was made to detail how the process went for my particular computer. If you have another computer, especially if it's has an Intel processor, and/or is from a different generation, the process of finding the corresponding variable may be slightly or very different; I unfortunately can't warn agains the nuances of different computers.
 
 # Requirements
 You may not need some of these tools, or may need additional tools, depending on how your firmware updates are packaged. On Arch Linux, most are available in the official repositories or the AUR. All the tools have precompiled binaries available in their repos, including ones compiled for Windows.
@@ -52,7 +54,7 @@ Double click on a search result to expand the tree view to it, and on that view 
 
 ![UEFITool](/images/2025-10-22/uefitool.jpg)
 
-From a terminal, run *IFRExtractor* on the extracted image: ``ifrextractor <PE32_image>```. If it errors out with *No IFR data found*, proceed with another PE32 image. If it succeeds, it will produce a txt file. Open it, search for the same string you did in the previous step, and see if you find the option that manages S3 sleep.
+From a terminal, run *IFRExtractor* on the extracted image: ``ifrextractor <PE32_image>```. If it errors out with *No IFR data found*, proceed with another PE32 image. If it succeeds, it will produce one or more txt files. Open them, search for the same string you did in the previous step, and see if you find the option that manages S3 sleep. Make sure you find an actual option with a *VarOffset*, and not something else like a subtitle or prompt.
 
 In my case, the correct file was *AmdPbsSetupDxe*, and the option I was looking for has a *prompt* string of "**S3/Modern Standby Support**".
 

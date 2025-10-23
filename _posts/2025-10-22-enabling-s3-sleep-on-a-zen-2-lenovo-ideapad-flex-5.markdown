@@ -20,7 +20,7 @@ However, I was sure that this laptop did in fact support S3 sleep under the hood
 
 I tried for a while various methods to enter the advanced settings in the setup utility, but none of the many methods I found worked (the methods vary widely even between different Lenovo laptops), so I decided to look for alternatives. The solution came in form of [this Reddit post](https://www.reddit.com/r/Lenovo/comments/id0457/guide_to_reenable_undervolting_after_latest_bios/) that I adapted for my situation.
 
-This procedure boils down to finding options that are technically exposed in the setup utility, but are hidden away in an "advanced settings" menu that is hidden behind a button combination or procedure that's not publically known, or is otherwise made inaccessible.
+This procedure boils down to finding options that are technically exposed in the setup utility, but are part of an "advanced settings" menu that is hidden behind a button combination or procedure that's not publicly known, or is otherwise made inaccessible.
 
 # Warning, warning, warning!
 This is a risky process! Modifying EFI variables can brick your computer. If you don't want to take any risks, or you don't have a way to fix a potential brick, please do not follow this procedure. And especially do not, under any circumstances, for any reason, blindly edit any section of any EFI variable. It's also in the realm of possibility that trying to enable S3 sleep this way may result in a brick on computers that simply don't support it at all and have a janky firmware. **I am not responsible for any bricks!**

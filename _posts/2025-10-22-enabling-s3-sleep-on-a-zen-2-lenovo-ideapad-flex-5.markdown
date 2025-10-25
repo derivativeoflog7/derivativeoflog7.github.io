@@ -14,7 +14,7 @@ One major difference software-wise between the two models is that this one comes
 
 Unfortunately, another major difference is that, out of the box, it only supports *s2idle* (modern standby), which I truly detest, and no S3 sleep; and unfortunately, the setup utility doesn't expose any setting to enable the latter.
 
-![:(](/images/2025-10-22/nos3.jpg)
+![Only s2idle listed in Linux](/images/2025-10-22/nos3.jpg)
 
 However, I was sure that this laptop did in fact support S3 sleep under the hood for two reasons: first, the old laptop, which had the exact same CPU, supported it without any issues; second, the [changelog](https://download.lenovo.com/consumer/mobiles/jccn43ww.txt) for the firmware specifically mentions things about S3.
 
@@ -32,7 +32,7 @@ This post was made to detail how the process went for my computer in particular.
 # Requirements
 You may not need some of these tools, or may need additional tools, depending on how your firmware updates are packaged. On Arch Linux, most are available in the official repositories or the AUR. All the tools have precompiled binaries available in their repos, including ones compiled for Windows.
 
-- [UEFITool](https://github.com/LongSoft/UEFITool) (note that this is a GUI tool) - if you download a precompiled binary, make sure you get UEFITool and not UEFIExtract or UEFIFind; you may need to click "show all assets" in the GitHub release page.
+- [UEFITool](https://github.com/LongSoft/UEFITool) (note that this is a GUI tool) - if you download a precompiled binary, make sure you get UEFITool and not UEFIExtract or UEFIFind; you may need to click "show all assets" in the GitHub release page. If installing from the AUR, make sure to get the *ng* package.
 - [IFRExtractor-RS](https://github.com/LongSoft/IFRExtractor-RS)
 
 - [innoextract](https://github.com/dscharrer/innoextract/releases) - to extract Lenovo firmware updates packaged as .exe
@@ -52,19 +52,19 @@ Open *UEFITool*, and open the firmware file, and a tree view will appear. Press 
 Ignore any results that aren't PE32 image sections.  
 Double click on a search result to expand the tree view to it, and on that view right click it and do *Extract as is...*.
 
-![UEFITool](/images/2025-10-22/uefitool.jpg)
+![UEFITool screenshot](/images/2025-10-22/uefitool.jpg)
 
 From a terminal, run *IFRExtractor* on the extracted image: ``ifrextractor <PE32_image>```. If it errors out with *No IFR data found*, proceed with another PE32 image. If it succeeds, it will produce one or more txt files. Open them, search for the same string you did in the previous step, and see if you find the option that manages S3 sleep. Make sure you find an actual option with a *VarOffset*, and not something else like a subtitle or prompt.
 
 In my case, the correct file was *AmdPbsSetupDxe*, and the option I was looking for has a *prompt* string of "**S3/Modern Standby Support**".
 
-![Variable](/images/2025-10-22/ifs.jpg)
+![Text in the IFR corresponding to the S3 enable](/images/2025-10-22/ifs.jpg)
 
 Take a note of the *VarOffset* value, which in my case is `0x38`. Take a note of the value that enables S3 sleep, in my case it's `0`.
 
 Go to the top of the file, and take a note of the *Name* string, which in my case is `AMD_PBS_SETUP`.
 
-![Variable](/images/2025-10-22/ifs_name.jpg)
+![Name of the variable](/images/2025-10-22/ifs_name.jpg)
 
 # Part II - changing the variable
 This is the scary part. I used RU.efi, but as said before, there are other ways to achieve this.
@@ -75,11 +75,15 @@ Put RU.efi in a place where you can boot it from your firmware. I tried putting 
 
 Press ESC to dismiss the splash message, then press ALT+= (USA layout) (or press ALT+C and then select UEFI variable), then find and select the variable with the name corresponding to the one you found before.
 
-Go to the location corresponding to the offset you found before, and enter the value that enables S3 sleep. Press Enter, then CTRL+W to save. You should get an *Updated OK* message.
+![Variables listed in RU](/images/2025-10-22/ru_vars.jpg)
+
+Go to the location corresponding to the offset you found before, and enter the value that enables S3 sleep (in my case, changing it from `01` to `00`). Press Enter, then CTRL+W to save. You should get an *Updated OK* message.
+
+![Editing the value in RU](/images/2025-10-22/ru_overwriting.jpg)
 
 Reboot your computer, and check if S3 sleep is now available.
 
-![:\)](/images/2025-10-22/yess3.jpg)
+![S3 sleep listed in Linux](/images/2025-10-22/yess3.jpg)
 
 Remember to enable secure boot again if you disabled it, and check if S3 sleep stays enabled after you save settings from the setup utility. Make sure to test S3 sleep to not have any nasty surprises and loss of data in the future.
 

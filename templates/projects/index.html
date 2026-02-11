@@ -19,6 +19,11 @@
             <img src="/img/website_logos/GitHub_Invertocat_Black.svg" alt="GitHub logo"><span>Source code and download</span>
         </a>
         {% endif %}
+        {% if entry["gbatemp_link"] %}
+        <a href="{{ entry["gbatemp_link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">
+            <span>GBAtemp thread</span>
+        </a>
+        {% endif %}
     </article>
 {% endfor %}
 {% endblock %}

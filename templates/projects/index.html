@@ -1,0 +1,19 @@
+{% extends "_partials/base.html" %}
+{% block title %}My projects - derivativeoflog7{% endblock %}
+{% block content %}
+{% for entry in project_entries %}
+    <article class="project-entry">
+        <span>
+            <div>
+                <h1>
+                    {{ entry["title"] }}
+                    {% for badge in entry["compatibility_badges"] %}
+                    <img src="{{ badge['image_src'] }}" alt="{{ badge['name'] }}"" title="{{ badge['name'] }}" class="compatibility-badge">
+                    {% endfor %}
+                </h1>
+            </div>
+        </span>
+        {{ entry["html"] }}
+    </article>
+{% endfor %}
+{% endblock %}

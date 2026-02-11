@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title required %}{% endblock %}</title>
+    <link rel="stylesheet" href="/css/base.css">
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <div id="header-logo" href="/">
+            <a href="/">
+                derivativeoflog7's website
+            </a>
+        </div>
+        <nav id="header-nav">
+            <a class="{% block projects_nav_class %}{% endblock %}" href="/projects/">Projects</a>
+            <a class="{% block blog_nav_class %}{% endblock %}" href="/blog/">Blog</a>
+            <a class="{% block about_nav_class %}{% endblock %}" href="/about/">About</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content required%}{% endblock %}
+    </main>
+</body>
+</html>

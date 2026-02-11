@@ -32,6 +32,7 @@ def parse_project_entries(path: Path, md: Markdown, logger: Logger) -> tuple[dic
                 "title": md.Meta["title"][0],
                 "github_link": md.Meta.get("github_link", [None])[0], # Is there a better way to do this?
                 "gbatemp_link": md.Meta.get("gbatemp_link", [None])[0],
+                "youtube_link": md.Meta.get("youtube_link", [None])[0],
                 "compatibility_badges": tuple(_COMPATIBILITY_BADGES[badge_id.strip()] for badge_id in compatibility_badge_ids),
                 "html": html
             })

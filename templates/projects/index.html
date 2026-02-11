@@ -16,7 +16,7 @@
         {{ entry["html"] }}
         {% if entry["github_link"] %}
         <a href="{{ entry["github_link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">
-            <img src="/img/website_logos/GitHub_Invertocat_Black.svg" alt="GitHub logo"><span>Source code and download</span>
+            <span>Source code and download</span>
         </a>
         {% endif %}
         {% if entry["gbatemp_link"] %}
@@ -24,6 +24,12 @@
             <span>GBAtemp thread</span>
         </a>
         {% endif %}
+        {% if entry["youtube_link"] %}
+        <a href="{{ entry["youtube_link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">
+            <span>Showcase video</span>
+        </a>
+        {% endif %}
+        
     </article>
 {% endfor %}
 {% endblock %}

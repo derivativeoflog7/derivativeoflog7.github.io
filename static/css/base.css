@@ -28,6 +28,10 @@ header a {
     text-decoration: underline black dashed;
 }
 
+h1 {
+    font-weight: normal;
+}
+
 .project-entry h1 {
     margin-bottom: 0;
 }
@@ -40,19 +44,7 @@ header a {
 .project-entry .button{
     font-size: 1.2em;
     padding: 0.3em;
-}
-
-.project-entry .button img {
-    width: 100%;
-    height: 100%;
-    max-width: 1.2em;
-    max-height: 1.2em;
-    margin-right: 0.3em;
-    vertical-align: middle;
-}
-
-.project-entry .button span {
-    vertical-align: -0.15em;
+    margin-bottom: 0.2em;
 }
 
 .compatibility-badge {

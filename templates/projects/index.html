@@ -8,12 +8,17 @@
                 <h1>
                     {{ entry["title"] }}
                     {% for badge in entry["compatibility_badges"] %}
-                    <img src="{{ badge['image_src'] }}" alt="{{ badge['name'] }}"" title="{{ badge['name'] }}" class="compatibility-badge">
+                    <img src="{{ badge["image_src"] }}" alt="{{ badge["name"] }}"" title="{{ badge["name"] }}" class="compatibility-badge">
                     {% endfor %}
                 </h1>
             </div>
         </span>
         {{ entry["html"] }}
+        {% if entry["github_link"] %}
+        <a href="{{ entry["github_link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">
+            <img src="/img/website_logos/GitHub_Invertocat_Black.svg" alt="GitHub logo"><span>Source code and download</span>
+        </a>
+        {% endif %}
     </article>
 {% endfor %}
 {% endblock %}

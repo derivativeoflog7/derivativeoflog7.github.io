@@ -1,6 +1,7 @@
 title:  TLoZ: The Wind Waker HD 3rd person camera tweaks
 compatibility_badges:   aroma
                         cemu
+github_link:    https://github.com/derivativeoflog7/WWHD_3pCameraTweaks
 
 Tweaks for the third camera person in The Legend of Zelda: The Wind Waker HD.  
 Currently available patches are:

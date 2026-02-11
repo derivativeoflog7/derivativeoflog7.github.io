@@ -1,13 +1,18 @@
+import logging
+import sys
 from markdown import Markdown
 from modules import project_entries_parser
 from pathlib import Path
 from shutil import rmtree
 from staticjinja import Site
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+logger.addHandler(logging.StreamHandler(sys.stderr))
+
 STATIC_PATH = Path("./static")
 OUTPUT_PATH = Path("./_site")
 PROJECT_ENTRIES_PATH = Path("./project_entries")
-
 
 md = Markdown(
     output_format="html",
@@ -18,7 +23,7 @@ md = Markdown(
 )
 
 if __name__ == "__main__":
-    project_entries = project_entries_parser.parse_project_entries(PROJECT_ENTRIES_PATH, md)
+    project_entries = project_entries_parser.parse_project_entries(PROJECT_ENTRIES_PATH, md, logger)
     if OUTPUT_PATH.exists():
         rmtree(OUTPUT_PATH)
     STATIC_PATH.mkdir(exist_ok=True)

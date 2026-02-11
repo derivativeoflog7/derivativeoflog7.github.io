@@ -1,5 +1,5 @@
-title: "Enabling S3 sleep on a Zen 2 Lenovo Ideapad Flex 5 (Ryzen 5500U, laptop type 82R9)"
-date: "2025-10-22"
+title:  Enabling S3 sleep on a Zen 2 Lenovo Ideapad Flex 5 (Ryzen 5500U, laptop type 82R9)
+date:   2025-10-22
 
 # Introduction
 Yesterday I got a new laptop, as my old one got it's digitizer smashed due to a poorly designed hinge.  

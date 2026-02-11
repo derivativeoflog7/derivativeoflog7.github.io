@@ -37,10 +37,39 @@ header a {
     margin-bottom: 0.5em;
 }
 
+.project-entry .button{
+    font-size: 1.2em;
+    padding-right: 0.3em;
+}
+
+.project-entry .button img {
+    width: 100%;
+    height: 100%;
+    max-width: 1.2em;
+    max-height: 1.2em;
+    margin: 0.3em;
+    vertical-align: middle;
+}
+
+.project-entry .button span {
+    vertical-align: -0.15em;
+}
+
 .compatibility-badge {
     width: auto;
     height: auto;
-    max-height: 1.5em;
     max-width: 1.5em;
+    max-height: 1.5em;
     vertical-align: middle;
+}
+
+.button {
+    border: 1px solid black;
+    border-radius: 0.1em;
+    display: inline-block;
+}
+
+.a-reset {
+    color: unset;
+    text-decoration: unset;
 }

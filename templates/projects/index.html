@@ -3,33 +3,24 @@
 {% block content %}
 {% for entry in project_entries %}
     <article class="project-entry">
-        <span>
-            <div>
-                <h1>
-                    {{ entry["title"] }}
-                    {% for badge in entry["compatibility_badges"] %}
-                    <img src="{{ badge["image_src"] }}" alt="{{ badge["name"] }}"" title="{{ badge["name"] }}" class="compatibility-badge">
-                    {% endfor %}
-                </h1>
+        <div class="title-container">
+            <h1>
+                {{ entry["title"] }}
+            </h1>
+            {% if entry["compatibility_badges"] %}
+            <div class="nowrap inline">    
+                {% for badge in entry["compatibility_badges"] %}
+                <img src="{{ badge["image_src"] }}" alt="{{ badge["name"] }}" title="{{ badge["name"] }}" class="compatibility-badge">
+                {% endfor %}
             </div>
-        </span>
+            {% endif %}
+        </div>
         {{ entry["html"] }}
-        {% if entry["github_link"] %}
-        <a href="{{ entry["github_link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">
-            <span>Source code and download</span>
+        {% for link in entry["links"] %}
+        <a href="{{ link["link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">
+            <span>{{ link["text"] }}</span>
         </a>
-        {% endif %}
-        {% if entry["gbatemp_link"] %}
-        <a href="{{ entry["gbatemp_link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">
-            <span>GBAtemp thread</span>
-        </a>
-        {% endif %}
-        {% if entry["youtube_link"] %}
-        <a href="{{ entry["youtube_link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">
-            <span>Showcase video</span>
-        </a>
-        {% endif %}
-        
+        {% endfor %}
     </article>
 {% endfor %}
 {% endblock %}

@@ -1,3 +1,4 @@
+from json import JSONDecoder
 from logging import Logger
 from markdown import Markdown
 from pathlib import Path
@@ -23,17 +24,15 @@ _COMPATIBILITY_BADGES = {
 
 def parse_project_entries(path: Path, md: Markdown, logger: Logger) -> tuple[dict, ...]:
     ret = []
+    jd = JSONDecoder()
     for file_path in path.glob("*.md"):
         logger.info(f"Parsing {file_path}")
         with open(file_path, "r") as file:
             html = md.convert(file.read())
-            compatibility_badge_ids = md.Meta.get("compatibility_badges", [])
             ret.append({
                 "title": md.Meta["title"][0],
-                "github_link": md.Meta.get("github_link", [None])[0], # Is there a better way to do this?
-                "gbatemp_link": md.Meta.get("gbatemp_link", [None])[0],
-                "youtube_link": md.Meta.get("youtube_link", [None])[0],
-                "compatibility_badges": tuple(_COMPATIBILITY_BADGES[badge_id.strip()] for badge_id in compatibility_badge_ids),
+                "links": [{k:v for k,v in jd.decode(link).items()} for link in md.Meta.get("links", [])],
+                "compatibility_badges": tuple(_COMPATIBILITY_BADGES[badge_id.strip()] for badge_id in md.Meta.get("compatibility_badges", [])),
                 "html": html
             })
     return tuple(ret)

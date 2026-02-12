@@ -8,21 +8,29 @@
     <link rel="stylesheet" href="/css/base.css">
     {% endblock %}
 </head>
-<body>
-    <header>
-        <div id="header-logo" href="/">
-            <a href="/">
-                derivativeoflog7's website
-            </a>
+<body class="{% block body_class %}{% endblock %}">
+    <header class="width-limiter">
+        <div id="header-left">
+            <div id="header-logo">
+                <a href="/">
+                    derivativeoflog7's website
+                </a>
+            </div>
+            <nav id="header-nav">
+                <a class="{% block projects_nav_class %}{% endblock %}" href="/projects/">Projects</a>
+                <a class="{% block blog_nav_class %}{% endblock %}" href="/blog/">Blog</a>
+                <a class="{% block about_nav_class %}{% endblock %}" href="/about/">About</a>
+            </nav>
         </div>
-        <nav id="header-nav">
-            <a class="{% block projects_nav_class %}{% endblock %}" href="/projects/">Projects</a>
-            <a class="{% block blog_nav_class %}{% endblock %}" href="/blog/">Blog</a>
-            <a class="{% block about_nav_class %}{% endblock %}" href="/about/">About</a>
-        </nav>
+        <div>
+            <input type="checkbox" name="wide" id="wide-checkbox">
+            <label for="wide-checkbox">Wide</label>
+            <input type="checkbox" name="dark" id="dark-checkbox">
+            <label for="dark-checkbox">Dark</label>
+        </div>
     </header>
-
-    <main>
+    <hr>
+    <main class="width-limiter">
         {% block content required%}{% endblock %}
     </main>
 </body>

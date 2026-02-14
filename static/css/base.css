@@ -1,17 +1,14 @@
 :root {
     --width-limit: 45rem;
+    /* LIGHT MODE (default) */
+    --background-color: white;
+    --color: black;
+    --noscript-warning-color: darkred;
 }
 
-/* Dark mode testing, temporary */
-#dark-mode-dummy {
-    display: none;
-    background-color: red;
-}
-
-@media (prefers-color-scheme: dark) {
-    #dark-mode-dummy {
-        display:initial;
-    }
+body {
+    background-color: var(--background-color);
+    color: var(--color);
 }
 
 /* Page width button */
@@ -44,6 +41,17 @@
         #light-mode-label {
             display: none;
         }
+        /* LIGHT MODE */
+        --background-color: white;
+        --color: black;
+        --noscript-warning-color: darkred;
+    }
+    
+    :root {
+        /* DARK MODE */
+        --background-color: #212327; /* Stolen from Google */
+        --color: lightgray;
+        --noscript-warning-color: red;
     }
 }
 
@@ -59,10 +67,19 @@
         #dark-mode-label {
             display: none;
         }
+
+        /* DARK MODE */
+        --background-color: #212327; /* Stolen from Google */
+        --color: lightgray;
+        --noscript-warning-color: red;
     }
 }
 
 /* Noscript warning button and dialog */
+#noscript-dialog-label {
+    color: var(--noscript-warning-color);
+}
+
 #noscript-dialog-div {
     display: none; /* Overridden by checkbox */
     /* The following 5 are for centering */
@@ -76,7 +93,7 @@
     border: 2px solid;
     border-radius: 5px;
     padding: 3px;
-    background-color: white; /* Better way to do this? */
+    background-color: var(--background-color); /* Better way to do this? */
 }
 
 #noscript-dialog-div label {
@@ -98,7 +115,13 @@
     user-select: none;
 }
 
+@media (max-width: calc(45rem + 16px)) { /* Take body's margin into account (hopefully it's universal)*/
+    #width-toggle {
+        display: none !important;
+    }    
+}
 
+/* All below are misc */
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -109,12 +132,6 @@ header {
     gap: 20px;
     align-items: center;
     justify-content: space-between;
-}
-
-/*Don't make links in header blue and underlined*/
-header a {
-    color: unset;
-    text-decoration: unset;
 }
 
 header input {
@@ -134,6 +151,10 @@ header input {
 }
 
 #header-left > * {
+    display: inline;
+}
+
+#header-buttons > div {
     display: inline;
 }
 
@@ -160,8 +181,8 @@ h1 {
 }
 
 .project-entry .button{
-    font-size: 1.2em;
-    padding: 0.3em;
+    font-size: 1.1em;
+    padding: 0.2em;
     margin-bottom: 0.2em;
 }
 
@@ -174,12 +195,12 @@ h1 {
 }
 
 .button {
-    border: 1px solid black;
-    border-radius: 0.1em;
+    border: 1px solid var(--color);
+    border-radius: 5px;
     display: inline-block;
 }
 
-.a-reset {
+.a-reset, .a-reset * { /* Also applies to children!*/
     color: unset;
     text-decoration: unset;
 }

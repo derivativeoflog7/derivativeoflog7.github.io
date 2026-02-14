@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="width-limiter">
-        <div id="header-left">
+        <div id="header-left" class="a-reset">
             <div id="header-logo">
                 <a href="/">
                     derivativeoflog7's website
@@ -28,12 +28,16 @@
                 <input type="checkbox" name="noscript-dialog" id="noscript-dialog-checkbox">
                 <label for="noscript-dialog-checkbox" id="noscript-dialog-label" class="material-symbols-outlined">warning</label>
             </noscript>
-            <input type="checkbox" name="wide" id="wide-checkbox">
-            <label for="wide-checkbox" id="wide-unchecked-label" class="material-symbols-outlined">fit_page_width</label>
-            <label for="wide-checkbox" id="wide-checked-label" class="material-symbols-outlined">width_normal</label>
-            <input type="checkbox" name="invert-color-scheme" id="invert-color-scheme-checkbox">
-            <label for="invert-color-scheme-checkbox" id="dark-mode-label" class="material-symbols-outlined">dark_mode</label>
-            <label for="invert-color-scheme-checkbox" id="light-mode-label" class="material-symbols-outlined">light_mode</label>
+            <div id="width-toggle">
+                <input type="checkbox" name="wide" id="wide-checkbox">
+                <label for="wide-checkbox" id="wide-unchecked-label" class="material-symbols-outlined">fit_page_width</label>
+                <label for="wide-checkbox" id="wide-checked-label" class="material-symbols-outlined">width_normal</label>
+            </div>
+            <div id="color-scheme-toggle">
+                <input type="checkbox" name="invert-color-scheme" id="invert-color-scheme-checkbox">
+                <label for="invert-color-scheme-checkbox" id="dark-mode-label" class="material-symbols-outlined">dark_mode</label>
+                <label for="invert-color-scheme-checkbox" id="light-mode-label" class="material-symbols-outlined">light_mode</label>
+            </div>
         </div>
     </header>
     <hr>
@@ -44,7 +48,6 @@
             <label for="noscript-dialog-checkbox" class="button">Close</label>
         </div>
     </noscript>
-    <div id="dark-mode-dummy">Dark mode ON</div>
     <main class="width-limiter">
         {% block content required%}{% endblock %}
     </main>

@@ -13,12 +13,14 @@ _COMPATIBILITY_BADGES = {
         "image_src": "/img/compatibility_badges/dsi.svg"
     },
     "aroma": {
-        "name": "Aroma",
-        "image_src": "/img/compatibility_badges/aroma.png"
+        "name": "Aroma (Wii U)",
+        "image_src": "/img/compatibility_badges/aroma.png",
+        "link": "https://aroma.foryour.cafe/"
     },
     "cemu": {
         "name": "Cemu",
-        "image_src": "https://raw.githubusercontent.com/cemu-project/Cemu/refs/heads/main/src/resource/logo_icon.png"
+        "image_src": "https://raw.githubusercontent.com/cemu-project/Cemu/refs/heads/main/src/resource/logo_icon.png",
+        "link": "https://cemu.info/"
     },
 }
 

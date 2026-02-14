@@ -2,9 +2,102 @@
     --width-limit: 45rem;
 }
 
+/* Dark mode testing, temporary */
+#dark-mode-dummy {
+    display: none;
+    background-color: red;
+}
+
+@media (prefers-color-scheme: dark) {
+    #dark-mode-dummy {
+        display:initial;
+    }
+}
+
+/* Page width button */
+#wide-checked-label {
+    display: none;
+}
+
 :root:has(#wide-checkbox:checked) {
     --width-limit: initial;
+
+    #wide-checked-label {
+        display: initial;
+    }
+
+    #wide-unchecked-label {
+        display: none;
+    }
 }
+
+/* Color scheme buttom */
+@media (prefers-color-scheme: dark) {
+    #dark-mode-label {
+        display: none;
+    }
+
+    :root:has(#invert-color-scheme-checkbox:checked) {
+        #dark-mode-label {
+            display: initial;
+        }
+        #light-mode-label {
+            display: none;
+        }
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    #light-mode-label {
+        display: none;
+    }
+
+    :root:has(#invert-color-scheme-checkbox:checked) {
+        #light-mode-label {
+            display: initial;
+        }
+        #dark-mode-label {
+            display: none;
+        }
+    }
+}
+
+/* Noscript warning button and dialog */
+#noscript-dialog-div {
+    display: none; /* Overridden by checkbox */
+    /* The following 5 are for centering */
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-inline: auto; 
+    width: fit-content;
+    text-align: justify;
+    max-width: 30em;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: white; /* Better way to do this? */
+}
+
+#noscript-dialog-div label {
+    margin: auto;
+    text-align: center;
+    display: block;
+    width: fit-content;
+    padding: 3px;
+}
+
+:root:has(#noscript-dialog-checkbox:checked) {
+    #noscript-dialog-div {
+        display: initial;
+    }
+}
+
+/* Make buttons in header unselectable */
+#header-buttons {
+    user-select: none;
+}
+
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -22,6 +115,10 @@ header {
 header a {
     color: unset;
     text-decoration: unset;
+}
+
+header input {
+    display: none;
 }
 
 #header-logo {

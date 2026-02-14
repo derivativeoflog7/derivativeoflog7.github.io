@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title required %}{% endblock %}</title>
     <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=dark_mode,fit_page_width,light_mode,warning,width_normal">
     {% endblock %}
 </head>
-<body class="{% block body_class %}{% endblock %}">
+<body>
     <header class="width-limiter">
         <div id="header-left">
             <div id="header-logo">
@@ -22,14 +23,28 @@
                 <a class="{% block about_nav_class %}{% endblock %}" href="/about/">About</a>
             </nav>
         </div>
-        <div>
+        <div id="header-buttons">
+            <noscript>
+                <input type="checkbox" name="noscript-dialog" id="noscript-dialog-checkbox">
+                <label for="noscript-dialog-checkbox" id="noscript-dialog-label" class="material-symbols-outlined">warning</label>
+            </noscript>
             <input type="checkbox" name="wide" id="wide-checkbox">
-            <label for="wide-checkbox">Wide</label>
-            <input type="checkbox" name="dark" id="dark-checkbox">
-            <label for="dark-checkbox">Dark</label>
+            <label for="wide-checkbox" id="wide-unchecked-label" class="material-symbols-outlined">fit_page_width</label>
+            <label for="wide-checkbox" id="wide-checked-label" class="material-symbols-outlined">width_normal</label>
+            <input type="checkbox" name="invert-color-scheme" id="invert-color-scheme-checkbox">
+            <label for="invert-color-scheme-checkbox" id="dark-mode-label" class="material-symbols-outlined">dark_mode</label>
+            <label for="invert-color-scheme-checkbox" id="light-mode-label" class="material-symbols-outlined">light_mode</label>
         </div>
     </header>
     <hr>
+    <noscript>
+        <div id="noscript-dialog-div">
+            JavaScript is disabled, thus the site will not be able to save the page width and color scheme preferences and have them persist across pages. <br>
+            Note that JavaScript is not used for anything else on this website.
+            <label for="noscript-dialog-checkbox" class="button">Close</label>
+        </div>
+    </noscript>
+    <div id="dark-mode-dummy">Dark mode ON</div>
     <main class="width-limiter">
         {% block content required%}{% endblock %}
     </main>

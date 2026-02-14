@@ -25,7 +25,9 @@ md = Markdown(
 if __name__ == "__main__":
     project_entries = project_entries_parser.parse_project_entries(PROJECT_ENTRIES_PATH, md, logger)
     if OUTPUT_PATH.exists():
+        logger.info(f"Deleting existing {OUTPUT_PATH}")
         rmtree(OUTPUT_PATH)
+    logger.info(f"Copying {STATIC_PATH} to {OUTPUT_PATH}")
     STATIC_PATH.mkdir(exist_ok=True)
     STATIC_PATH.copy(OUTPUT_PATH)
     site = Site.make_site(

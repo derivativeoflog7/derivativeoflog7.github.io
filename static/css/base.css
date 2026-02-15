@@ -1,11 +1,22 @@
 :root {
-    --width-limit: 45rem;
-    /* LIGHT MODE (default) */
-    --background-color: white;
-    --color: black;
-    --noscript-warning-color: darkred;
-    --link-color: blue;
+    --WIDTH-LIMIT: 45rem;
+    --width-limit: var(--WIDTH-LIMIT);
+    --LIGHT-background-color: white;
+    --LIGHT-color: black;
+    --LIGHT-noscript-warning-color: darkred;
+    --LIGHT-link-color: blue;
+    --DARK-background-color: #212327; /* Stolen from Google */
+    --DARK-color: lightgray;
+    --DARK-noscript-warning-color: red;
+    --DARK-link-color: #99c3ff; /* Also stolen from Google */
+
+    /* DARK MODE */
+    --background-color: var(--DARK-background-color);
+    --color: var(--DARK-color);
+    --noscript-warning-color: var(--DARK-noscript-warning-color);
+    --link-color: var(--DARK-link-color);
 }
+
 
 body {
     background-color: var(--background-color);
@@ -30,52 +41,48 @@ body {
 }
 
 /* Color scheme buttom */
-@media (prefers-color-scheme: dark) {
-    #dark-mode-label {
-        display: none;
+#invert-color-scheme-checked-label {
+    display: none;
+}
+
+:root:has(#invert-color-scheme-checkbox:checked) {
+    #invert-color-scheme-checked-label {
+        display: initial;
     }
 
-    :root:has(#invert-color-scheme-checkbox:checked) {
-        #dark-mode-label {
-            display: initial;
-        }
-        #light-mode-label {
-            display: none;
-        }
-        /* LIGHT MODE */
-        --background-color: white;
-        --color: black;
-        --noscript-warning-color: darkred;
-        --link-color: blue;
-    }
-    
-    :root {
-        /* DARK MODE */
-        --background-color: #212327; /* Stolen from Google */
-        --color: lightgray;
-        --noscript-warning-color: red;
-        --link-color: #99c3ff; /* Also stolen from Google */
+    #invert-color-scheme-unchecked-label {
+        display: none;
     }
 }
 
-@media (prefers-color-scheme: light) {
-    #light-mode-label {
-        display: none;
-    }
+@media (prefers-color-scheme: dark) {
 
     :root:has(#invert-color-scheme-checkbox:checked) {
-        #light-mode-label {
-            display: initial;
-        }
-        #dark-mode-label {
-            display: none;
-        }
+        /* LIGHT MODE */
+        --background-color: var(--LIGHT-background-color);
+        --color: var(--LIGHT-color);
+        --noscript-warning-color: var(--LIGHT-noscript-warning-color);
+        --link-color: var(--LIGHT-link-color);
+    }
 
+    /* Here would be dark mode, but it's the "default" values already set in :root*/
+}
+
+@media (prefers-color-scheme: light) {
+    :root:has(#invert-color-scheme-checkbox:checked) {
         /* DARK MODE */
-        --background-color: #212327; /* Stolen from Google */
-        --color: lightgray;
-        --noscript-warning-color: red;
-        --link-color: #99c3ff; /* Also stolen from Google */
+        --background-color: var(--DARK-background-color);
+        --color: var(--DARK-color);
+        --noscript-warning-color: var(--DARK-noscript-warning-color);
+        --link-color: var(--DARK-link-color);
+    }
+
+    :root {
+        /* LIGHT MODE */
+        --background-color: var(--LIGHT-background-color);
+        --color: var(--LIGHT-color);
+        --noscript-warning-color: var(--LIGHT-noscript-warning-color);
+        --link-color: var(--LIGHT-link-color);
     }
 }
 
@@ -94,7 +101,7 @@ body {
     width: fit-content;
     text-align: justify;
     max-width: 30em;
-    border: 2px solid;
+    border: 2px solid darkorange;
     border-radius: 5px;
     padding: 3px;
     background-color: var(--background-color); /* Better way to do this? */
@@ -217,16 +224,16 @@ h1 {
     display: inline-block;
 }
 
-a:link, a:visited {
+a:not(.a-reset) {
     color: var(--link-color);
 }
 
-.a-reset, .a-reset * { /* Also applies to children! */
-    color: unset !important;
-    text-decoration: unset !important;
+.a-reset {
+    color: unset;
+    text-decoration: unset;
 }
 
-.width-limiter, .width-limiter * { /* Also applies to children! */
+.width-limiter, .width-limiter *:not(.no-width-limit) { /* Also applies to children! */
     max-width: var(--width-limit);
 }
 

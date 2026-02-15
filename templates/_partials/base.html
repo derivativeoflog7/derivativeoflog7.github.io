@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    {% block head %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title required %}{% endblock %}</title>
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=dark_mode,fit_page_width,light_mode,warning,width_normal">
-    {% endblock %}
-</head>
-<body>
-    <header class="width-limiter">
-        <div id="header-left" class="a-reset">
-            <div id="header-logo">
-                <a href="/">
-                    derivativeoflog7's website
-                </a>
+    <head>
+        {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title required %}{% endblock %}</title>
+        <link rel="stylesheet" href="/css/base.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=fit_page_width,invert_colors,invert_colors_off,warning,width_normal">
+        <script src="/js/settings.js"></script>
+        {% endblock %}
+    </head>
+    <body onload="loadSettings()">
+        <header class="width-limiter">
+            <div id="header-left">
+                <div id="header-logo">
+                    <a href="/" class="a-reset">
+                        derivativeoflog7's website
+                    </a>
+                </div>
+                <nav id="header-nav">
+                    <a class="{% block projects_nav_class %}{% endblock %} a-reset" href="/projects/">Projects</a>
+                    <a class="{% block blog_nav_class %}{% endblock %} a-reset" href="/blog/">Blog</a>
+                    <a class="{% block about_nav_class %}{% endblock %} a-reset" href="/about/">About</a>
+                </nav>
             </div>
-            <nav id="header-nav">
-                <a class="{% block projects_nav_class %}{% endblock %}" href="/projects/">Projects</a>
-                <a class="{% block blog_nav_class %}{% endblock %}" href="/blog/">Blog</a>
-                <a class="{% block about_nav_class %}{% endblock %}" href="/about/">About</a>
-            </nav>
-        </div>
-        <div id="header-buttons">
-            <noscript>
-                <input type="checkbox" name="noscript-dialog" id="noscript-dialog-checkbox">
-                <label for="noscript-dialog-checkbox" id="noscript-dialog-label" class="material-symbols-outlined">warning</label>
-            </noscript>
-            <div id="width-toggle">
-                <input type="checkbox" name="wide" id="wide-checkbox">
-                <label for="wide-checkbox" id="wide-unchecked-label" class="material-symbols-outlined">fit_page_width</label>
-                <label for="wide-checkbox" id="wide-checked-label" class="material-symbols-outlined">width_normal</label>
+            <div id="header-buttons">
+                <noscript><div>
+                        <input type="checkbox" name="noscript-dialog" id="noscript-dialog-checkbox">
+                        <label for="noscript-dialog-checkbox" id="noscript-dialog-label" class="material-symbols-outlined">warning</label>
+                </div></noscript>
+                <div id="width-toggle">
+                    <input type="checkbox" name="wide" id="wide-checkbox" onchange="saveSettings()">
+                    <label for="wide-checkbox" id="wide-unchecked-label" class="material-symbols-outlined">fit_page_width</label>
+                    <label for="wide-checkbox" id="wide-checked-label" class="material-symbols-outlined">width_normal</label>
+                </div>
+                <div id="color-scheme-toggle">
+                    <input type="checkbox" name="invert-color-scheme" id="invert-color-scheme-checkbox" onchange="saveSettings()">
+                    <label for="invert-color-scheme-checkbox" id="invert-color-scheme-unchecked-label" class="material-symbols-outlined">invert_colors</label>
+                    <label for="invert-color-scheme-checkbox" id="invert-color-scheme-checked-label" class="material-symbols-outlined">invert_colors_off</label>
+                </div>
             </div>
-            <div id="color-scheme-toggle">
-                <input type="checkbox" name="invert-color-scheme" id="invert-color-scheme-checkbox">
-                <label for="invert-color-scheme-checkbox" id="dark-mode-label" class="material-symbols-outlined">dark_mode</label>
-                <label for="invert-color-scheme-checkbox" id="light-mode-label" class="material-symbols-outlined">light_mode</label>
+        </header>
+        <hr>
+        <noscript>
+            <div id="noscript-dialog-div">
+                JavaScript is disabled, as such the site will not be able to save the page width and color scheme preferences and have them persist across pages. <br>
+                Note that JavaScript is not used for anything else on this website.
+                <label for="noscript-dialog-checkbox" class="button">Close</label>
             </div>
-        </div>
-    </header>
-    <hr>
-    <noscript>
-        <div id="noscript-dialog-div">
-            JavaScript is disabled, thus the site will not be able to save the page width and color scheme preferences and have them persist across pages. <br>
-            Note that JavaScript is not used for anything else on this website.
-            <label for="noscript-dialog-checkbox" class="button">Close</label>
-        </div>
-    </noscript>
-    <main class="width-limiter">
-        {% block content required%}{% endblock %}
-    </main>
-</body>
+        </noscript>
+        <main class="width-limiter">
+            {% block content required%}{% endblock %}
+        </main>
+    </body>
 </html>

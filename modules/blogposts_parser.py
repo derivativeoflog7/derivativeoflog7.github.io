@@ -1,5 +1,7 @@
+from datetime import date
 from logging import Logger
 from markdown import Markdown
+from operator import itemgetter
 from pathlib import Path
 
 def parse_blogposts(path: Path, md: Markdown, logger: Logger) -> tuple[dict, ...]:
@@ -10,9 +12,9 @@ def parse_blogposts(path: Path, md: Markdown, logger: Logger) -> tuple[dict, ...
             html = md.convert(file.read())
             ret.append({
                 "title": md.Meta["title"][0],
-                "date": None,
+                "date": date.strptime(md.Meta["date"][0], "%Y-%m-%d"),
                 "filename": file_path.name,
                 "html": html
             })
-    return tuple(ret)
+    return tuple(sorted(ret, key=itemgetter("date"), reverse=True))
 

@@ -35,7 +35,8 @@ def parse_project_entries(path: Path, md: Markdown, logger: Logger) -> tuple[dic
                 "title": md.Meta["title"][0],
                 "links": [{k:v for k,v in jd.decode(link).items()} for link in md.Meta.get("links", [])],
                 "compatibility_badges": tuple(_COMPATIBILITY_BADGES[badge_id.strip()] for badge_id in md.Meta.get("compatibility_badges", [])),
-                "html": html
+                "html": html,
+                "filename": file_path.name,
             })
     return tuple(ret)
 

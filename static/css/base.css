@@ -4,6 +4,7 @@
     --background-color: white;
     --color: black;
     --noscript-warning-color: darkred;
+    --link-color: blue;
 }
 
 body {
@@ -45,6 +46,7 @@ body {
         --background-color: white;
         --color: black;
         --noscript-warning-color: darkred;
+        --link-color: blue;
     }
     
     :root {
@@ -52,6 +54,7 @@ body {
         --background-color: #212327; /* Stolen from Google */
         --color: lightgray;
         --noscript-warning-color: red;
+        --link-color: #99c3ff; /* Also stolen from Google */
     }
 }
 
@@ -72,6 +75,7 @@ body {
         --background-color: #212327; /* Stolen from Google */
         --color: lightgray;
         --noscript-warning-color: red;
+        --link-color: #99c3ff; /* Also stolen from Google */
     }
 }
 
@@ -121,11 +125,12 @@ body {
     }    
 }
 
-/* All below are misc */
+/* Fonts */
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Header (except for buttons) */
 header {
     display: flex;
     flex-direction: row;
@@ -147,7 +152,7 @@ header input {
 }
 
 #header-nav > a.current {
-    text-decoration: underline black dashed;
+    text-decoration: underline var(--color) dashed !important;
 }
 
 #header-left > * {
@@ -158,16 +163,9 @@ header input {
     display: inline;
 }
 
-h1 {
-    font-weight: normal;
-}
-
-.title-container > * {
+/* Projects page */
+.project-title-container > * {
     vertical-align: middle;
-}
-
-.project-entry {
-    margin-bottom: 1em;
 }
 
 .project-entry h1 {
@@ -180,7 +178,7 @@ h1 {
     margin-bottom: 0.5em;
 }
 
-.project-entry .button{
+.project-entry .button {
     font-size: 1.1em;
     padding: 0.2em;
     margin-bottom: 0.2em;
@@ -194,15 +192,37 @@ h1 {
     vertical-align: middle;
 }
 
+/* Blog page */
+.blogpost-date {
+    font-size: 0.85em;
+}
+
+.blogpost-link {
+    font-size: 1.7em
+}
+
+/* Misc/generic */
+.margin-bottom-1em {
+    margin-bottom: 1em;
+}
+
+h1 {
+    font-weight: normal;
+}
+
 .button {
     border: 1px solid var(--color);
     border-radius: 5px;
     display: inline-block;
 }
 
+a:link, a:visited {
+    color: var(--link-color);
+}
+
 .a-reset, .a-reset * { /* Also applies to children!*/
-    color: unset;
-    text-decoration: unset;
+    color: unset !important;
+    text-decoration: unset !important;
 }
 
 .width-limiter {
@@ -216,4 +236,9 @@ h1 {
 
 .inline {
     display: inline;
+}
+
+/* Remove marin-bottom from last article on projects and blog page */
+main article:last-child {
+    margin-bottom: initial;
 }

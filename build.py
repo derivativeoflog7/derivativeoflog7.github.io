@@ -1,7 +1,7 @@
 import logging
 import sys
 from markdown import Markdown
-from modules import project_entries_parser
+from modules import blogposts_parser, project_entries_parser
 from pathlib import Path
 from shutil import rmtree
 from staticjinja import Site
@@ -12,6 +12,7 @@ logger.addHandler(logging.StreamHandler(sys.stderr))
 
 STATIC_PATH = Path("./static")
 OUTPUT_PATH = Path("./_site")
+BLOGPOSTS_PATH = Path("./blogposts")
 PROJECT_ENTRIES_PATH = Path("./project_entries")
 
 md = Markdown(
@@ -24,6 +25,7 @@ md = Markdown(
 
 if __name__ == "__main__":
     project_entries = project_entries_parser.parse_project_entries(PROJECT_ENTRIES_PATH, md, logger)
+    blogposts = blogposts_parser.parse_blogposts(BLOGPOSTS_PATH, md, logger)
     if OUTPUT_PATH.exists():
         logger.info(f"Deleting existing {OUTPUT_PATH}")
         rmtree(OUTPUT_PATH)
@@ -39,6 +41,7 @@ if __name__ == "__main__":
             #     {"text": "About", "dir": "about"},
             # ),
             "project_entries": project_entries,
+            "blogposts": blogposts,
         }
     )
     site.render()

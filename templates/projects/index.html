@@ -1,9 +1,10 @@
 {% extends "_partials/base.html" %}
 {% block title %}My projects - derivativeoflog7{% endblock %}
+{% block projects_nav_class %}current{% endblock %}
 {% block content %}
 {% for entry in project_entries %}
-    <article class="project-entry">
-        <div class="title-container">
+    <article class="project-entry margin-bottom-1em" id="{{ entry["filename"][:-3] }}">
+        <div class="project-title-container">
             <h1>
                 {{ entry["title"] }}
             </h1>

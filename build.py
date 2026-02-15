@@ -1,5 +1,6 @@
 import logging
 import sys
+from datetime import date
 from markdown import Markdown
 from modules import blogposts_parser, project_entries_parser
 from pathlib import Path
@@ -12,7 +13,8 @@ logger.addHandler(logging.StreamHandler(sys.stderr))
 
 STATIC_PATH = Path("./static")
 OUTPUT_PATH = Path("./_site")
-BLOGPOSTS_PATH = Path("./blogposts")
+BLOGPOSTS_OUTPUT_PATH = OUTPUT_PATH / "blog"
+BLOGPOSTS_PATH = Path("./templates/blog")
 PROJECT_ENTRIES_PATH = Path("./project_entries")
 
 md = Markdown(
@@ -22,6 +24,21 @@ md = Markdown(
         "toc"
     )
 )
+
+def blogpost_md_context(template):
+    markdown_content = Path(template.filename).read_text()
+    return {
+        "html": md.convert(markdown_content),
+        "title": md.Meta["title"][0],
+        "date": date.strptime(md.Meta["date"][0], "%Y-%m-%d"),
+    }
+
+def render_blogpost_md(site, template, **kwargs):
+    out = BLOGPOSTS_OUTPUT_PATH / Path(template.name).stem / "index.html"
+
+    # Compile and stream the result
+    out.parent.mkdir(exist_ok=True, parents=True)
+    site.get_template("_partials/blogpost.html").stream(**kwargs).dump(str(out), encoding="utf-8")
 
 if __name__ == "__main__":
     project_entries = project_entries_parser.parse_project_entries(PROJECT_ENTRIES_PATH, md, logger)
@@ -33,7 +50,9 @@ if __name__ == "__main__":
     STATIC_PATH.mkdir(exist_ok=True)
     STATIC_PATH.copy(OUTPUT_PATH)
     site = Site.make_site(
-        outpath="./_site",
+        outpath=OUTPUT_PATH,
+        contexts=[(r"blog/.*\.md", blogpost_md_context)],
+        rules=[(r"blog/.*\.md", render_blogpost_md)],
         env_globals={
             # "nav_items": (
             #     {"text": "Projects", "dir": "projects"},
@@ -45,6 +64,9 @@ if __name__ == "__main__":
         }
     )
     site.render()
+
+
+
 
 # def md_context(template):
 #     markdown_content = Path(template.filename).read_text()

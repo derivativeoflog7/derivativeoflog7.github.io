@@ -155,12 +155,9 @@ header input {
     text-decoration: underline var(--color) dashed !important;
 }
 
-#header-left > * {
+header div, header nav {
     display: inline;
-}
-
-#header-buttons > div {
-    display: inline;
+    vertical-align: middle;
 }
 
 /* Projects page */
@@ -201,6 +198,10 @@ header input {
     font-size: 1.7em
 }
 
+.blogpost-title {
+    margin-bottom: 0.1em;
+}
+
 /* Misc/generic */
 .margin-bottom-1em {
     margin-bottom: 1em;
@@ -220,13 +221,16 @@ a:link, a:visited {
     color: var(--link-color);
 }
 
-.a-reset, .a-reset * { /* Also applies to children!*/
+.a-reset, .a-reset * { /* Also applies to children! */
     color: unset !important;
     text-decoration: unset !important;
 }
 
-.width-limiter {
+.width-limiter, .width-limiter * { /* Also applies to children! */
     max-width: var(--width-limit);
+}
+
+.width-limiter { /* Centers */
     margin: auto;
 }
 

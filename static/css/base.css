@@ -47,6 +47,8 @@ body {
     }
 }
 
+/* Auto radio doesn't actually control these two, they're "default" and get overridden if needed 
+This is to avoid flashing colors when the page is still loading (I think, I haven't confirmed it)*/
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: var(--DARK-background-color);

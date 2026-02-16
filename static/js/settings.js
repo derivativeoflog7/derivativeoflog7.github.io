@@ -6,19 +6,22 @@ function getItemWithDefault(keyName, defaultValue) {
 }
 
 function loadSettings() {
-    wide_checkbox = document.getElementById("wide-checkbox");
-    invert_color_scheme_checkbox = document.getElementById("invert-color-scheme-checkbox");
-    wide_checkbox.checked = eval(getItemWithDefault("wide", false));
-    invert_color_scheme_checkbox.checked = eval(getItemWithDefault("invert_color_scheme", false));
+    let wide_checkbox = document.getElementById("wide-checkbox");
+    wide_checkbox.checked = parseInt(getItemWithDefault("wide", "0"));
+
+    let color_scheme = getItemWithDefault("color_scheme", "auto");
+    document.getElementById(`color-scheme-${color_scheme}-radio`).checked = true;
+
     // Delete temporary CSS
     document.getElementById("temp-css").remove();
 }
 
 function saveSettings() {
     wide_checkbox = document.getElementById("wide-checkbox");
-    invert_color_scheme_checkbox = document.getElementById("invert-color-scheme-checkbox");
-    localStorage.setItem("wide", wide_checkbox.checked);
-    localStorage.setItem("invert_color_scheme", invert_color_scheme_checkbox.checked);
+    color_scheme = document.querySelector("input[name='color-scheme']:checked").value;
+    // Convert bool to int, which is then converted to string
+    localStorage.setItem("wide", +wide_checkbox.checked); 
+    localStorage.setItem("color_scheme", color_scheme);
 }
 
 
@@ -33,14 +36,12 @@ And yes, the whole reason this mess is needed is just that I really wanted to ha
 a pure CSS color theme/width toggle implementation :).
 */
 function tempCSS() {
-    let prefers_dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    let invert_color_scheme = eval(getItemWithDefault("invert_color_scheme", "false"));
-    let wide = eval(getItemWithDefault("wide", "false"));
+    let wide = parseInt(getItemWithDefault("wide", "0"));
+    let color_scheme = getItemWithDefault("color_scheme", "auto")
     var partial_css = '';
-    if (invert_color_scheme) {
+    if (color_scheme != "auto") {
         let prefix;
-        // Here we're setting the OPPOSITE scheme to the one reported as preferred
-        if (prefers_dark) 
+        if (color_scheme == "light") 
             prefix = "LIGHT";
         else 
             prefix = "DARK";
@@ -57,7 +58,7 @@ function tempCSS() {
     // Source - https://stackoverflow.com/a/524721
     // Posted by Christoph, modified by community. See post 'Timeline' for change history
     // Retrieved 2026-02-15, License - CC BY-SA 4.0
-    let css = `#header-buttons {visibility: hidden !important;} :root{ ${partial_css} }`,
+    let css = `#header-buttons {display: none !important;} :root{ ${partial_css} }`,
         head = document.head,
         style = document.createElement('style');
     style.id = "temp-css"

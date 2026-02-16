@@ -9,12 +9,6 @@
     --DARK-color: lightgray;
     --DARK-noscript-warning-color: red;
     --DARK-link-color: #99c3ff; /* Also stolen from Google */
-
-    /* DARK MODE */
-    --background-color: var(--DARK-background-color);
-    --color: var(--DARK-color);
-    --noscript-warning-color: var(--DARK-noscript-warning-color);
-    --link-color: var(--DARK-link-color);
 }
 
 
@@ -40,50 +34,59 @@ body {
     }
 }
 
-/* Color scheme buttom */
-#invert-color-scheme-checked-label {
-    display: none;
+/* Color scheme toggle */
+/* Hide all labels by default*/
+#color-scheme-toggle label { 
+    display: none
 }
 
-:root:has(#invert-color-scheme-checkbox:checked) {
-    #invert-color-scheme-checked-label {
+/* Labels are shown in order Auto→Dark→White */
+:root:has(#color-scheme-auto-radio:checked) {
+    #color-scheme-dark-label {
         display: initial;
-    }
-
-    #invert-color-scheme-unchecked-label {
-        display: none;
     }
 }
 
 @media (prefers-color-scheme: dark) {
-
-    :root:has(#invert-color-scheme-checkbox:checked) {
-        /* LIGHT MODE */
-        --background-color: var(--LIGHT-background-color);
-        --color: var(--LIGHT-color);
-        --noscript-warning-color: var(--LIGHT-noscript-warning-color);
-        --link-color: var(--LIGHT-link-color);
-    }
-
-    /* Here would be dark mode, but it's the "default" values already set in :root*/
-}
-
-@media (prefers-color-scheme: light) {
-    :root:has(#invert-color-scheme-checkbox:checked) {
-        /* DARK MODE */
+    :root {
         --background-color: var(--DARK-background-color);
         --color: var(--DARK-color);
         --noscript-warning-color: var(--DARK-noscript-warning-color);
         --link-color: var(--DARK-link-color);
     }
+}
 
+@media (prefers-color-scheme: light) {
     :root {
-        /* LIGHT MODE */
         --background-color: var(--LIGHT-background-color);
         --color: var(--LIGHT-color);
         --noscript-warning-color: var(--LIGHT-noscript-warning-color);
         --link-color: var(--LIGHT-link-color);
     }
+}
+
+:root:has(#color-scheme-light-radio:checked) {
+    --background-color: var(--LIGHT-background-color);
+    --color: var(--LIGHT-color);
+    --noscript-warning-color: var(--LIGHT-noscript-warning-color);
+    --link-color: var(--LIGHT-link-color);
+    #color-scheme-auto-label {
+        display: initial;
+    }
+}
+
+:root:has(#color-scheme-dark-radio:checked) {
+    --background-color: var(--DARK-background-color);
+    --color: var(--DARK-color);
+    --noscript-warning-color: var(--DARK-noscript-warning-color);
+    --link-color: var(--DARK-link-color);
+    #color-scheme-light-label {
+        display: initial;
+    }
+}
+
+#color-scheme-light::before {
+    content: "test";
 }
 
 /* Noscript warning button and dialog */
@@ -144,6 +147,7 @@ header {
     gap: 20px;
     align-items: center;
     justify-content: space-between;
+    height: 2em;
 }
 
 header input {

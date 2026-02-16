@@ -6,19 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title required %}{% endblock %}</title>
         <link rel="stylesheet" href="/css/base.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=fit_page_width,invert_colors,invert_colors_off,warning,width_normal">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=dark_mode,fit_page_width,invert_colors,light_mode,warning,width_normal">
         <script src="/js/settings.js"></script>
         {% endblock %}
     </head>
     <body onload="loadSettings()">
         <header class="width-limiter">
-            <div id="header-left">
+            <!-- For some reason you need .nowrap on these two or it will be in two lines for a moment when loading a page -->
+            <div id="header-left" class="nowrap">
                 <div id="header-logo">
                     <a href="/" class="a-reset">
-                        derivativeoflog7's website
+                        derivativeoflog7
                     </a>
                 </div>
-                <nav id="header-nav">
+                <nav id="header-nav" class="nowrap">
                     <a class="{% block projects_nav_class %}{% endblock %} a-reset" href="/projects/">Projects</a>
                     <a class="{% block blog_nav_class %}{% endblock %} a-reset" href="/blog/">Blog</a>
                     <a class="{% block about_nav_class %}{% endblock %} a-reset" href="/about/">About</a>
@@ -31,13 +32,16 @@
                 </div></noscript>
                 <div id="width-toggle">
                     <input type="checkbox" name="wide" id="wide-checkbox" onchange="saveSettings()">
-                    <label for="wide-checkbox" id="wide-unchecked-label" class="material-symbols-outlined">fit_page_width</label>
-                    <label for="wide-checkbox" id="wide-checked-label" class="material-symbols-outlined">width_normal</label>
+                    <label for="wide-checkbox" id="wide-unchecked-label" class="material-symbols-outlined" title="Toggle page width">fit_page_width</label>
+                    <label for="wide-checkbox" id="wide-checked-label" class="material-symbols-outlined" title="Toggle page width">width_normal</label>
                 </div>
                 <div id="color-scheme-toggle">
-                    <input type="checkbox" name="invert-color-scheme" id="invert-color-scheme-checkbox" onchange="saveSettings()">
-                    <label for="invert-color-scheme-checkbox" id="invert-color-scheme-unchecked-label" class="material-symbols-outlined">invert_colors</label>
-                    <label for="invert-color-scheme-checkbox" id="invert-color-scheme-checked-label" class="material-symbols-outlined">invert_colors_off</label>
+                    <input type="radio" name="color-scheme" id="color-scheme-light-radio" value="light" onclick="saveSettings()" >
+                    <input type="radio" name="color-scheme" id="color-scheme-auto-radio" value="auto" onclick="saveSettings()" checked>
+                    <input type="radio" name="color-scheme" id="color-scheme-dark-radio" value="dark" onclick="saveSettings()">
+                    <label for="color-scheme-light-radio" id="color-scheme-light-label" class="material-symbols-outlined" title="Force color scheme to white">light_mode</label>
+                    <label for="color-scheme-auto-radio" id="color-scheme-auto-label" class="material-symbols-outlined" title="Set color scheme to auto">invert_colors</label>
+                    <label for="color-scheme-dark-radio" id="color-scheme-dark-label" class="material-symbols-outlined" title="Force color scheme to dark">dark_mode</label>
                 </div>
             </div>
         </header>

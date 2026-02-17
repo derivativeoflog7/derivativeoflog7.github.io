@@ -262,7 +262,7 @@ a:not(.a-reset):hover {
 }
 
 .width-limiter, .width-limiter *:not(.no-width-limit) { /* Also applies to children! */
-    max-width: var(--width-limit);
+    max-width: min(var(--width-limit), calc(100vw - 1rem));
 }
 
 .width-limiter { /* Centers */

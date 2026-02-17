@@ -1,5 +1,7 @@
 https://derivativeoflog7.github.io
 
+This website hosts an unmodified copy of the [Google Material Symbols](https://fonts.google.com/icons) font, which is licensed under the [Apace License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
 # Credits
 [Ingunar](https://github.com/Ingunar): Unofficial [Aroma](https://aroma.foryour.cafe/) logo  
 [cemu-project](https://github.com/cemu-project): [Cemu logo](https://github.com/cemu-project/Cemu/blob/main/src/resource/logo_icon.png)

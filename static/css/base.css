@@ -277,11 +277,6 @@ a:not(.a-reset):hover {
     display: inline;
 }
 
-/* Remove marin-bottom from last article on projects and blog page */
-main article:last-child, main article:last-child h1 {
-    margin-bottom: initial;
-}
-
 @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;

@@ -1,6 +1,7 @@
 import logging
+import PyRSS2Gen
 import sys
-from datetime import date
+from datetime import date, datetime
 from markdown import Markdown
 from modules import blogposts_parser, project_entries_parser
 from pathlib import Path
@@ -11,6 +12,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 logger.addHandler(logging.StreamHandler(sys.stderr))
 
+BASE_URL = "https://derivativeoflog7.github.io/"
 STATIC_PATH = Path("./static")
 OUTPUT_PATH = Path("./_site")
 BLOGPOSTS_OUTPUT_PATH = OUTPUT_PATH / "blog"
@@ -54,19 +56,42 @@ if __name__ == "__main__":
         contexts=[(r"blog/.*\.md", blogpost_md_context)],
         rules=[(r"blog/.*\.md", render_blogpost_md)],
         env_globals={
-            # "nav_items": (
-            #     {"text": "Projects", "dir": "projects"},
-            #     {"text": "Blog", "dir": "blog"},
-            #     {"text": "About", "dir": "about"},
-            # ),
             "project_entries": project_entries,
             "blogposts": blogposts,
         }
     )
     site.render()
+    logger.info(f"Creating blog RSS feed")
+    blog_rss = PyRSS2Gen.RSS2(
+        title = "derivativeoflog7 - New blogposts",
+        link = BASE_URL + "blog/",
+        lastBuildDate = datetime.now(),
+        description = "derivativeoflog7 - New blogposts",
 
+        items = (
+            PyRSS2Gen.RSSItem(
+                title = post["title"],
+                link = BASE_URL + blogposts_parser.blogpost_path(post),
+                guid = PyRSS2Gen.Guid(BASE_URL + blogposts_parser.blogpost_path(post)),
+                pubDate = datetime.combine(post["date"], datetime.min.time()).isoformat(),
+            ) for post in blogposts
+        )
+    ).write_xml(open(OUTPUT_PATH / "blog/rss.xml", "w"))
+    logger.info("Creating projects RSS feed")
+    projects_rss = PyRSS2Gen.RSS2(
+        title="derivativeoflog7 - New projects",
+        link=BASE_URL + "projects/",
+        lastBuildDate=datetime.now(),
+        description="derivativeoflog7 - Nwe projects",
 
-
+        items = (
+            PyRSS2Gen.RSSItem(
+                title = entry["title"],
+                link = BASE_URL + "projects/",
+                guid = entry["title"]
+            ) for entry in project_entries
+        )
+    ).write_xml(open(OUTPUT_PATH / "projects/rss.xml", "w"))
 
 # def md_context(template):
 #     markdown_content = Path(template.filename).read_text()

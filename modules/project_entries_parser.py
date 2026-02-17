@@ -28,7 +28,7 @@ def parse_project_entries(path: Path, md: Markdown, logger: Logger) -> tuple[dic
     ret = []
     jd = JSONDecoder()
     for file_path in path.glob("*.md"):
-        logger.info(f"Parsing {file_path}")
+        logger.info(f"Parsing project entry {file_path}")
         with open(file_path, "r") as file:
             html = md.convert(file.read())
             ret.append({

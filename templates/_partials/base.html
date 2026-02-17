@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title required %}{% endblock %}</title>
         <link rel="stylesheet" href="/css/base.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=dark_mode,fit_page_width,invert_colors,light_mode,warning,width_normal">
         <script src="/js/settings.js"></script>
         {% endblock %}
     </head>
@@ -15,9 +14,7 @@
             <!-- For some reason you need .nowrap on these two or it will be in two lines for a moment when loading a page -->
             <div id="header-left" class="nowrap">
                 <div id="header-logo">
-                    <a href="/" class="a-reset">
-                        derivativeoflog7
-                    </a>
+                    <a href="/" class="a-reset">derivativeoflog7</a>
                 </div>
                 <nav id="header-nav" class="nowrap">
                     <a class="{% block projects_nav_class %}{% endblock %} a-reset" href="/projects/">Projects</a>
@@ -30,7 +27,7 @@
                         <input type="checkbox" name="noscript-dialog" id="noscript-dialog-checkbox">
                         <label for="noscript-dialog-checkbox" id="noscript-dialog-label" class="material-symbols-outlined">warning</label>
                 </div></noscript>
-                <div id="width-toggle">
+                <div id="wide-toggle">
                     <input type="checkbox" name="wide" id="wide-checkbox" onchange="saveSettings()">
                     <label for="wide-checkbox" id="wide-unchecked-label" class="material-symbols-outlined" title="Toggle page width">fit_page_width</label>
                     <label for="wide-checkbox" id="wide-checked-label" class="material-symbols-outlined" title="Toggle page width">width_normal</label>

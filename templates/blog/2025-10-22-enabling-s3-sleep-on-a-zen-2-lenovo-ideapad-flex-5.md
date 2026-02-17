@@ -39,7 +39,7 @@ You may not need some of these tools, or may need additional tools, depending on
 # Part I - finding the right variable
 The first thing to do find the EFI variable responsible for disabling S3 sleep; this is usually, but not always, in the form of an option that toggles between S3 and modern sleep.  
 
-Download the firmware update corresponding to the firmware revision you currently have installed, and extract the raw image from it. In case of Lenovo update packages, you can extract them using *innoextract*: ```innoextract <utility>.exe```  
+Download the firmware update corresponding to the firmware revision you currently have installed, and extract the raw image from it. In case of Lenovo update packages, you can extract them using *innoextract*: ```innoextract \<utility\>.exe```  
 This will dump the content of the update utility in a folder, which in my case contained only four files, of which ```JCCN43WW.cap``` was the actual firmware file.
 
 
@@ -50,7 +50,7 @@ Double click on a search result to expand the tree view to it, and on that view 
 
 ![UEFITool screenshot](/img/blog/2025-10-22/uefitool.jpg)
 
-From a terminal, run *IFRExtractor* on the extracted image: ``ifrextractor <PE32_image>```. If it errors out with *No IFR data found*, proceed with another PE32 image. If it succeeds, it will produce one or more txt files. Open them, search for the same string you did in the previous step, and see if you find the option that manages S3 sleep. Make sure you find an actual option with a *VarOffset*, and not something else like a subtitle or prompt.
+From a terminal, run *IFRExtractor* on the extracted image: ``ifrextractor \<PE32_image\>```. If it errors out with *No IFR data found*, proceed with another PE32 image. If it succeeds, it will produce one or more txt files. Open them, search for the same string you did in the previous step, and see if you find the option that manages S3 sleep. Make sure you find an actual option with a *VarOffset*, and not something else like a subtitle or prompt.
 
 In my case, the correct file was *AmdPbsSetupDxe*, and the option I was looking for has a *prompt* string of "**S3/Modern Standby Support**".
 

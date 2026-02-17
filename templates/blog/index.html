@@ -1,13 +1,14 @@
-{% extends "_partials/base.html" %}
+{% extends "_partials/rss_base.html" %}
 {% block title %}Blog - derivativeoflog7{% endblock %}
 {% block blog_nav_class %}current{% endblock %}
-{% block content %}
+{% block content2 %}
     {% for post in blogposts %}
         <article class="margin-bottom-1em">
             <span class="blogpost-date">{{ post["date"].strftime("%a %d %B %Y") }}</span> <br>
-            <a href="{{ post["filename"] }}" class="blogpost-link">
+            <a href="{{ post["filename"] }}" class="blogpost-link"><h1>
                 {{ post["title"] }}
-            </a>
+            </h1></a>
         </article>
     {% endfor %}
+    {{ super() }}
 {% endblock %}

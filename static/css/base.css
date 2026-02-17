@@ -5,12 +5,13 @@
     --LIGHT-color: black;
     --LIGHT-noscript-warning-color: darkred;
     --LIGHT-link-color: blue;
+    --LIGHT-hover-label-color: teal;
     --DARK-background-color: #212327; /* Stolen from Google */
     --DARK-color: lightgray;
     --DARK-noscript-warning-color: red;
     --DARK-link-color: #99c3ff; /* Also stolen from Google */
+    --DARK-hover-label-color: turquoise;
 }
-
 
 body {
     background-color: var(--background-color);
@@ -30,6 +31,12 @@ body {
     }
 
     #wide-unchecked-label {
+        display: none;
+    }
+}
+
+@media (max-width: 46rem) { /* --WIDTH-LIMIT + 1em */
+    #wide-toggle {
         display: none;
     }
 }
@@ -55,6 +62,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
         --color: var(--DARK-color);
         --noscript-warning-color: var(--DARK-noscript-warning-color);
         --link-color: var(--DARK-link-color);
+        --label-hover-color: var(--DARK-hover-label-color);
     }
 }
 
@@ -64,6 +72,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
         --color: var(--LIGHT-color);
         --noscript-warning-color: var(--LIGHT-noscript-warning-color);
         --link-color: var(--LIGHT-link-color);
+        --label-hover-color: var(--LIGHT-hover-label-color);
     }
 }
 
@@ -72,6 +81,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     --color: var(--LIGHT-color);
     --noscript-warning-color: var(--LIGHT-noscript-warning-color);
     --link-color: var(--LIGHT-link-color);
+    --label-hover-color: var(--LIGHT-hover-label-color);
     #color-scheme-auto-label {
         display: initial;
     }
@@ -82,13 +92,10 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     --color: var(--DARK-color);
     --noscript-warning-color: var(--DARK-noscript-warning-color);
     --link-color: var(--DARK-link-color);
+    --label-hover-color: var(--DARK-hover-label-color);
     #color-scheme-light-label {
         display: initial;
     }
-}
-
-#color-scheme-light::before {
-    content: "test";
 }
 
 /* Noscript warning button and dialog */
@@ -108,7 +115,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     max-width: 30em;
     border: 2px solid darkorange;
     border-radius: 5px;
-    padding: 3px;
+    padding: 0.1em;
     background-color: var(--background-color); /* Better way to do this? */
 }
 
@@ -117,7 +124,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     text-align: center;
     display: block;
     width: fit-content;
-    padding: 3px;
+    padding: 0.1em;
 }
 
 :root:has(#noscript-dialog-checkbox:checked) {
@@ -131,10 +138,9 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     user-select: none;
 }
 
-@media (max-width: calc(45rem + 16px)) { /* Take body's margin into account (hopefully it's universal)*/
-    #width-toggle {
-        display: none !important;
-    }    
+#header-buttons label {
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 /* Fonts */
@@ -151,6 +157,15 @@ header {
     justify-content: space-between;
     height: 2em;
 }
+
+header :is(a:hover, a:focus) {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+header :is(label:hover, label:focus) {
+    color: var(--label-hover-color);
+} 
 
 header input {
     display: none;
@@ -172,6 +187,7 @@ header div, header nav {
     display: inline;
     vertical-align: middle;
 }
+
 
 /* Projects page */
 .project-title-container > * {
@@ -207,11 +223,12 @@ header div, header nav {
     font-size: 0.85em;
 }
 
-.blogpost-link {
-    font-size: 1.7em
+.blogpost-link h1 {
+    margin-top: 0;
 }
 
 .blogpost-title {
+    margin-top: 0;
     margin-bottom: 0.1em;
 }
 
@@ -232,6 +249,11 @@ h1 {
 
 a:not(.a-reset) {
     color: var(--link-color);
+    text-decoration: none;
+}
+
+a:not(.a-reset):hover {
+    text-decoration: underline;
 }
 
 .a-reset {
@@ -256,6 +278,33 @@ a:not(.a-reset) {
 }
 
 /* Remove marin-bottom from last article on projects and blog page */
-main article:last-child {
+main article:last-child, main article:last-child h1 {
     margin-bottom: initial;
+}
+
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src: url(/fonts/MaterialSymbolsOutlined.woff2) format('woff');
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+#rss-icon span {
+    color: orange;
+}
+
+#rss-icon {
+    color: var(--color);
 }

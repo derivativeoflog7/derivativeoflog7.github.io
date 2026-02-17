@@ -1,33 +1,33 @@
-{% extends "_partials/base.html" %}
+{% extends "_partials/rss_base.html" %}
 {% block title %}My projects - derivativeoflog7{% endblock %}
 {% block projects_nav_class %}current{% endblock %}
-{% block content %}
-{% for entry in project_entries %}
-    <article class="project-entry margin-bottom-1em" id="{{ entry["filename"][:-3] }}">
-        <div class="project-title-container">
-            <h1>
-                {{ entry["title"] }}
-            </h1>
-            {% if entry["compatibility_badges"] %}
-            <div class="nowrap inline">    
-                {% for badge in entry["compatibility_badges"] %}
-                    {% if badge["link"] %}
-                    <a href="{{ badge["link"] }}" class="a-reset" target="_blank" rel="noopener noreferrer">
-                    {% endif %}
-                        <img src="{{ badge["image_src"] }}" alt="{{ badge["name"] }}" title="{{ badge["name"] }}" class="compatibility-badge no-width-limit">
-                    {% if badge["link"] %}
-                    </a>
-                    {% endif %}
-                {% endfor %}
+{% block content2 %}
+    {% for entry in project_entries %}
+        <article class="project-entry margin-bottom-1em" id="{{ entry["filename"][:-3] }}">
+            <div class="project-title-container">
+                <h1>
+                    {{ entry["title"] }}
+                </h1>
+                {% if entry["compatibility_badges"] %}
+                <div class="nowrap inline">    
+                    {% for badge in entry["compatibility_badges"] %}
+                        {% if badge["link"] %}
+                        <a href="{{ badge["link"] }}" class="a-reset" target="_blank" rel="noopener noreferrer">
+                        {% endif %}
+                            <img src="{{ badge["image_src"] }}" alt="{{ badge["name"] }}" title="{{ badge["name"] }}" class="compatibility-badge no-width-limit">
+                        {% if badge["link"] %}
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-        </div>
-        {{ entry["html"] }}
-        {% for link in entry["links"] %}
-        <a href="{{ link["link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">
-            <span>{{ link["text"] }}</span>
-        </a>
-        {% endfor %}
-    </article>
-{% endfor %}
+            {{ entry["html"] }}
+            {% for link in entry["links"] %}
+            <a href="{{ link["link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">
+                <span>{{ link["text"] }}</span>
+            </a>
+            {% endfor %}
+        </article>
+    {% endfor %}
 {% endblock %}

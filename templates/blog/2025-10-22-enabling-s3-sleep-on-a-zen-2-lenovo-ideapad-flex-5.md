@@ -50,7 +50,7 @@ Double click on a search result to expand the tree view to it, and on that view 
 
 ![UEFITool screenshot](/img/blog/2025-10-22/uefitool.jpg)
 
-From a terminal, run *IFRExtractor* on the extracted image: ``ifrextractor \<PE32_image\>```. If it errors out with *No IFR data found*, proceed with another PE32 image. If it succeeds, it will produce one or more txt files. Open them, search for the same string you did in the previous step, and see if you find the option that manages S3 sleep. Make sure you find an actual option with a *VarOffset*, and not something else like a subtitle or prompt.
+From a terminal, run *IFRExtractor* on the extracted image: ```ifrextractor \<PE32_image\>```. If it errors out with *No IFR data found*, proceed with another PE32 image. If it succeeds, it will produce one or more txt files. Open them, search for the same string you did in the previous step, and see if you find the option that manages S3 sleep. Make sure you find an actual option with a *VarOffset*, and not something else like a subtitle or prompt.
 
 In my case, the correct file was *AmdPbsSetupDxe*, and the option I was looking for has a *prompt* string of "**S3/Modern Standby Support**".
 

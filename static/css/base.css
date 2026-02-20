@@ -18,7 +18,32 @@ body {
     color: var(--color);
 }
 
-/* Page width button */
+/***Fonts***/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    src: url(/fonts/MaterialSymbolsOutlined.woff2) format('woff');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+
+/***Page width button***/
 #wide-checked-label {
     display: none;
 }
@@ -41,7 +66,7 @@ body {
     }
 }
 
-/* Color scheme toggle */
+/***Color scheme toggle***/
 /* Hide all labels by default*/
 #color-scheme-toggle label { 
     display: none
@@ -98,7 +123,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     }
 }
 
-/* Noscript warning button and dialog */
+/***Noscript warning button and dialog***/
 #noscript-dialog-label {
     color: var(--noscript-warning-color);
 }
@@ -133,7 +158,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     }
 }
 
-/* Make buttons in header unselectable */
+/***Make buttons in header unselectable***/
 #header-buttons {
     user-select: none;
 }
@@ -143,12 +168,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     cursor: pointer;
 }
 
-/* Fonts */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Header (except for buttons) */
+/***Header (except for buttons)***/
 header {
     display: flex;
     flex-direction: row;
@@ -188,8 +208,7 @@ header div, header nav {
     vertical-align: middle;
 }
 
-
-/* Projects page */
+/***Projects page***/
 .project-title-container > * {
     vertical-align: middle;
 }
@@ -222,7 +241,7 @@ header div, header nav {
     vertical-align: middle;
 }
 
-/* Blog page */
+/***Blog page***/
 .blogpost-date {
     font-size: 0.85em;
 }
@@ -236,7 +255,30 @@ header div, header nav {
     margin-bottom: 0.1em;
 }
 
-/* Misc/generic */
+/***RSS link***/
+#rss-link * {
+    vertical-align: middle;
+}
+
+#rss-link-icon {
+    color: orange;
+    width: 1em /* Avoids having the element too wide while the font is still loading*/
+}
+
+/* Ugly(?) hack to avoid havint the space between the icon and text have an underline when hovered*/
+#rss-link-text {
+    color: var(--link-color);
+}
+
+#rss-link:hover * {
+    color: var(--link-color);
+}
+
+#rss-link-text:hover {
+    text-decoration: underline;
+}
+
+/***Misc/generic***/
 .margin-bottom-1em {
     margin-bottom: 1em;
 }
@@ -279,45 +321,4 @@ a:not(.a-reset):hover {
 
 .inline {
     display: inline;
-}
-
-@font-face {
-  font-family: 'Material Symbols Outlined';
-  font-style: normal;
-  src: url(/fonts/MaterialSymbolsOutlined.woff2) format('woff');
-}
-
-.material-symbols-outlined {
-  font-family: 'Material Symbols Outlined';
-  font-weight: normal;
-  font-style: normal;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-}
-
-#rss-link * {
-    vertical-align: middle;
-}
-
-#rss-link-icon {
-    color: orange;
-    width: 1em /* Avoids having the element too wide while the font is still loading*/
-}
-
-/* Ugly(?) hack to avoid havint the space between the icon and text have an underline when hovered*/
-#rss-link-text {
-    color: var(--link-color);
-}
-
-#rss-link:hover * {
-    color: var(--link-color);
-}
-
-#rss-link-text:hover {
-    text-decoration: underline;
 }

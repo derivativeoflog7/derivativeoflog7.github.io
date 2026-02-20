@@ -210,6 +210,10 @@ header div, header nav {
     margin-bottom: 0.2em;
 }
 
+.project-entry .button:hover {
+    border-color: var(--link-color);
+}
+
 .compatibility-badge {
     width: auto;
     height: auto;
@@ -296,10 +300,24 @@ a:not(.a-reset):hover {
   direction: ltr;
 }
 
-#rss-icon span {
-    color: orange;
+#rss-link * {
+    vertical-align: middle;
 }
 
-#rss-icon {
-    color: var(--color);
+#rss-link-icon {
+    color: orange;
+    width: 1em /* Avoids having the element too wide while the font is still loading*/
+}
+
+/* Ugly(?) hack to avoid havint the space between the icon and text have an underline when hovered*/
+#rss-link-text {
+    color: var(--link-color);
+}
+
+#rss-link:hover * {
+    color: var(--link-color);
+}
+
+#rss-link-text:hover {
+    text-decoration: underline;
 }

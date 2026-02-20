@@ -9,12 +9,12 @@
                     {{ entry["title"] }}
                 </h1>
                 {% if entry["compatibility_badges"] %}
-                <div class="nowrap inline">    
+                <div class="nowrap compatibility-badges">
                     {% for badge in entry["compatibility_badges"] %}
                         {% if badge["link"] %}
                         <a href="{{ badge["link"] }}" class="a-reset" target="_blank" rel="noopener noreferrer">
                         {% endif %}
-                            <img src="{{ badge["image_src"] }}" alt="{{ badge["name"] }}" title="{{ badge["name"] }}" class="compatibility-badge no-width-limit">
+                            <img src="{{ badge["image_src"] }}" alt="{{ badge["name"] }}" title="{{ badge["name"] }}">
                         {% if badge["link"] %}
                         </a>
                         {% endif %}

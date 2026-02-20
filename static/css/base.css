@@ -233,12 +233,25 @@ header div, header nav {
     border-color: var(--link-color);
 }
 
-.compatibility-badge {
-    width: auto;
-    height: auto;
-    max-width: 2.5em;
-    max-height: 2.5em;
-    vertical-align: middle;
+.compatibility-badges {
+    display: inline-block;
+    height: 2.5em;
+}
+
+.compatibility-badges a, .compatibility-badges img {
+    border: 1px solid transparent;
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.compatibility-badges img {
+    object-fit: contain;
+    box-sizing: border-box;
+}
+
+.compatibility-badges a:hover {
+    border-color: var(--link-color);
 }
 
 /***Blog page***/
@@ -317,8 +330,4 @@ a:not(.a-reset):hover {
 
 .nowrap {
     white-space: nowrap;
-}
-
-.inline {
-    display: inline;
 }

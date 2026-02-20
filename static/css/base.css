@@ -178,12 +178,12 @@ header {
     height: 2em;
 }
 
-header :is(a:hover, a:focus) {
+header a:is(:hover, :focus) {
     color: var(--link-color);
     text-decoration: underline;
 }
 
-header :is(label:hover, label:focus) {
+header label:is(:hover, :focus) {
     color: var(--label-hover-color);
 } 
 
@@ -229,7 +229,7 @@ header div, header nav {
     margin-bottom: 0.2em;
 }
 
-.project-entry .button:hover {
+.project-entry .button:is(:hover, :focus) {
     border-color: var(--link-color);
 }
 
@@ -250,7 +250,7 @@ header div, header nav {
     box-sizing: border-box;
 }
 
-.compatibility-badges a:hover {
+.compatibility-badges a:is(:hover, :focus) {
     border-color: var(--link-color);
 }
 
@@ -283,11 +283,11 @@ header div, header nav {
     color: var(--link-color);
 }
 
-#rss-link:hover * {
+#rss-link:is(:hover, :focus) * {
     color: var(--link-color);
 }
 
-#rss-link-text:hover {
+#rss-link-text:is(:hover, :focus) {
     text-decoration: underline;
 }
 
@@ -311,7 +311,7 @@ a:not(.a-reset) {
     text-decoration: none;
 }
 
-a:not(.a-reset):hover {
+a:not(.a-reset):is(:hover, :focus) {
     text-decoration: underline;
 }
 

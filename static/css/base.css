@@ -196,13 +196,11 @@ header a:is(:hover, :focus) {
     background-color: var(--background-color);
     border: 1px solid var(--color);
     border-radius: 5px;
-    clip: rect(0,0,0,0); 
-
-    
+    clip-path: inset(0 0 100% 0);
 }
 
-#header-tabbable-section:focus-within {
-    clip: unset;
+#header-tabbable-section:has(:focus-visible) {
+    clip-path: inset(0);
 }
 
 #header-logo {

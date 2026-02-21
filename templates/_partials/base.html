@@ -24,22 +24,32 @@
             </div>
             <div id="header-buttons">
                 <noscript><div>
-                        <input type="checkbox" name="noscript-dialog" id="noscript-dialog-checkbox">
                         <label for="noscript-dialog-checkbox" id="noscript-dialog-label" class="material-symbols-outlined">warning</label>
                 </div></noscript>
                 <div id="wide-toggle">
-                    <input type="checkbox" name="wide" id="wide-checkbox" onchange="saveSettings()">
                     <label for="wide-checkbox" id="wide-unchecked-label" class="material-symbols-outlined" title="Toggle page width">fit_page_width</label>
                     <label for="wide-checkbox" id="wide-checked-label" class="material-symbols-outlined" title="Toggle page width">width_normal</label>
                 </div>
                 <div id="color-scheme-toggle">
-                    <input type="radio" name="color-scheme" id="color-scheme-light-radio" value="light" onclick="saveSettings()" >
-                    <input type="radio" name="color-scheme" id="color-scheme-auto-radio" value="auto" onclick="saveSettings()" checked>
-                    <input type="radio" name="color-scheme" id="color-scheme-dark-radio" value="dark" onclick="saveSettings()">
                     <label for="color-scheme-light-radio" id="color-scheme-light-label" class="material-symbols-outlined" title="Force color scheme to white">light_mode</label>
                     <label for="color-scheme-auto-radio" id="color-scheme-auto-label" class="material-symbols-outlined" title="Set color scheme to auto">invert_colors</label>
                     <label for="color-scheme-dark-radio" id="color-scheme-dark-label" class="material-symbols-outlined" title="Force color scheme to dark">dark_mode</label>
                 </div>
+            </div>
+            <div id="header-tabbable-section">
+                <noscript>
+                    <label for="noscript-dialog-checkbox">JavaScript warning</label>
+                    <input type="checkbox" name="noscript-dialog" id="noscript-dialog-checkbox"><br>
+                </noscript>
+                <label for="wide-checkbox">Wide page</label>
+                <input type="checkbox" name="wide" id="wide-checkbox" onchange="saveSettings()"><br>
+                <hr>
+                <label for="color-scheme-light-radio">Light color scheme</label>
+                <input type="radio" name="color-scheme" id="color-scheme-light-radio" value="light" onclick="saveSettings()"><br>
+                <label for="color-scheme-auto-radio">Auto color scheme</label>
+                <input type="radio" name="color-scheme" id="color-scheme-auto-radio" value="auto" onclick="saveSettings()" checked><br>
+                <label for="color-scheme-dark-radio">Dark color scheme</label>
+                <input type="radio" name="color-scheme" id="color-scheme-dark-radio" value="dark" onclick="saveSettings()">
             </div>
         </header>
         <hr>

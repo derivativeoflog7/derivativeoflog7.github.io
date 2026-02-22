@@ -2,7 +2,7 @@
 {% block title %}{{ title }}{% endblock %}
 {% block blog_nav_class %}current{% endblock %}
 {% block content %}
-    <h1 class="blogpost-title">{{ title }}</h1>
+    <h1 id="blogpost-title">{{ title }}</h1>
     <span class="blogpost-date">{{ date.strftime("%a %d %B %Y") }}</span>
     {{ html }}
 {% endblock %}

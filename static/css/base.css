@@ -275,9 +275,13 @@ header div, header nav {
     margin-top: 0;
 }
 
-.blogpost-title {
+#blogpost-title {
     margin-top: 0;
     margin-bottom: 0.1em;
+    font-family: "Georgia", serif;
+    font-weight: revert;
+    text-decoration: underline;
+    text-decoration-style: dotted;
 }
 
 /***RSS link***/

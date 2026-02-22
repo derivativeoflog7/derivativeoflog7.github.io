@@ -2,8 +2,8 @@ import logging
 import PyRSS2Gen
 import sys
 from datetime import date, datetime
-from markdown import Markdown
-from modules import blogposts_parser, project_entries_parser
+from markdown import Markdown, inlinepatterns
+from modules import blogposts_parser, project_entries_parser, markdown_extensions
 from pathlib import Path
 from shutil import rmtree
 from staticjinja import Site
@@ -26,6 +26,8 @@ md = Markdown(
         "toc"
     )
 )
+md.inlinePatterns.register(markdown_extensions.ExtendendLinkInlineProcessor(inlinepatterns.LINK_RE, md), "extended_link", 161)
+
 
 def blogpost_md_context(template):
     markdown_content = Path(template.filename).read_text()

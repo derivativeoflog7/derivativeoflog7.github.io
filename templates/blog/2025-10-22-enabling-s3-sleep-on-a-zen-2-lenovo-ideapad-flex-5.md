@@ -12,9 +12,9 @@ Unfortunately, another major difference is that, out of the box, it only support
 
 ![Only s2idle listed in Linux](/img/blog/2025-10-22/nos3.jpg)
 
-However, I was sure that this laptop did in fact support S3 sleep under the hood for two reasons: first, the old laptop, which had the exact same CPU, supported it without any issues; second, the [changelog](https://download.lenovo.com/consumer/mobiles/jccn43ww.txt) for the firmware specifically mentions things about S3.
+However, I was sure that this laptop did in fact support S3 sleep under the hood for two reasons: first, the old laptop, which had the exact same CPU, supported it without any issues; second, the [changelog](https://download.lenovo.com/consumer/mobiles/jccn43ww.txt "|newpage") for the firmware specifically mentions things about S3.
 
-I tried for a while various methods to enter the advanced settings in the setup utility, but none of the many methods I found worked (the methods vary widely even between different Lenovo laptops), so I decided to look for alternatives. The solution came in form of [this Reddit post](https://www.reddit.com/r/Lenovo/comments/id0457/guide_to_reenable_undervolting_after_latest_bios/) that I adapted for my situation.
+I tried for a while various methods to enter the advanced settings in the setup utility, but none of the many methods I found worked (the methods vary widely even between different Lenovo laptops), so I decided to look for alternatives. The solution came in form of [this Reddit post](https://www.reddit.com/r/Lenovo/comments/id0457/guide_to_reenable_undervolting_after_latest_bios/ "|newpage") that I adapted for my situation.
 
 This procedure boils down to finding options that are technically exposed in the setup utility, but are part of an "advanced settings" menu that is hidden behind a button combination or procedure that's not publicly known, or is otherwise made inaccessible.
 
@@ -28,13 +28,13 @@ This post was made to detail how the process went for my computer in particular.
 # Requirements
 You may not need some of these tools, or may need additional tools, depending on how your firmware updates are packaged. On Arch Linux, most are available in the official repositories or the AUR. All the tools have precompiled binaries available in their repos, including ones compiled for Windows.
 
-- [UEFITool](https://github.com/LongSoft/UEFITool) (note that this is a GUI tool) - if you download a precompiled binary, make sure you get UEFITool and not UEFIExtract or UEFIFind; you may need to click "show all assets" in the GitHub release page. If installing from the AUR, make sure to get the *ng* package.
-- [IFRExtractor-RS](https://github.com/LongSoft/IFRExtractor-RS)
+- [UEFITool](https://github.com/LongSoft/UEFITool "|newpage") (note that this is a GUI tool) - if you download a precompiled binary, make sure you get UEFITool and not UEFIExtract or UEFIFind; you may need to click "show all assets" in the GitHub release page. If installing from the AUR, make sure to get the *ng* package.
+- [IFRExtractor-RS](https://github.com/LongSoft/IFRExtractor-RS "|newpage")
 
-- [innoextract](https://github.com/dscharrer/innoextract/releases) - to extract Lenovo firmware updates packaged as .exe
-- [geteltorito](https://github.com/rainer042/geteltorito) (not needed in my case) - to extract the bootable image from bootable ISOs, in case the firmware update is distributed in that format
+- [innoextract](https://github.com/dscharrer/innoextract/releases "|newpage") - to extract Lenovo firmware updates packaged as .exe
+- [geteltorito](https://github.com/rainer042/geteltorito "|newpage") (not needed in my case) - to extract the bootable image from bootable ISOs, in case the firmware update is distributed in that format
 
-- [RU.EFI](https://ruexe.blogspot.com/), or another way to directly edit EFI variables. *efivar* on Linux probably is more than enough, but I haven't tried it.
+- [RU.EFI](https://ruexe.blogspot.com/ "|newpage"), or another way to directly edit EFI variables. *efivar* on Linux probably is more than enough, but I haven't tried it.
 
 # Part I - finding the right variable
 The first thing to do find the EFI variable responsible for disabling S3 sleep; this is usually, but not always, in the form of an option that toggles between S3 and modern sleep.  
@@ -85,4 +85,4 @@ Remember to enable secure boot again if you disabled it, and check if S3 sleep s
 
 # Failed attempt on a Zen 4 ThinkPad E16 Gen 1
 
-This procedure was also attempted on a ThinkPad E16 Gen 1 with a Ryzen 7730U. While we were able to find the variable (in the exact same location, in fact), RU.EFI failed to write to it with error `0x00000008`, which is due to [it being write protected](https://ruexe.blogspot.com/2021/08/errors-for-writing-uefi-variables.html). For now, I don't know what to do in this situation.
+This procedure was also attempted on a ThinkPad E16 Gen 1 with a Ryzen 7730U. While we were able to find the variable (in the exact same location, in fact), RU.EFI failed to write to it with error `0x00000008`, which is due to [it being write protected](https://ruexe.blogspot.com/2021/08/errors-for-writing-uefi-variables.html  "|newpage"). For now, I don't know what to do in this situation.

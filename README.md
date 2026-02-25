@@ -8,4 +8,4 @@ This website hosts an unmodified copy of the [Google Material Symbols](https://f
 
 
 # License
-**Apart from the Google Material Symbols fonts and what is listed above**, the code of this repo is licensed under the [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.html) license, the content of the blogposts under the [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license, and the vector images under the [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) license.
+**Apart from the Google Material Symbols fonts and other elements listed above, and any files that state otherwise**, the code of this repo is licensed under the [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.html) license, the content of the blogposts under the [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license, and the vector images under the [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) license.

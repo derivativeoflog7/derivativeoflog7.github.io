@@ -1,3 +1,4 @@
+from datetime import date
 from json import JSONDecoder
 from logging import Logger
 from markdown import Markdown
@@ -37,6 +38,7 @@ def parse_project_entries(path: Path, md: Markdown, logger: Logger) -> tuple[dic
                 "compatibility_badges": tuple(_COMPATIBILITY_BADGES[badge_id.strip()] for badge_id in md.Meta.get("compatibility_badges", [])),
                 "html": html,
                 "filename": file_path.name,
+                "release_date": date.strptime(md.Meta["release_date"][0], "%Y-%m-%d"),
             })
     return tuple(ret)
 

@@ -90,7 +90,8 @@ if __name__ == "__main__":
             PyRSS2Gen.RSSItem(
                 title = entry["title"],
                 link = BASE_URL + "projects/",
-                guid = entry["title"]
+                guid = entry["title"],
+                pubDate = datetime.combine(entry["release_date"], datetime.min.time()).isoformat(),
             ) for entry in project_entries
         )
     ).write_xml(open(OUTPUT_PATH / "projects/rss.xml", "w"))

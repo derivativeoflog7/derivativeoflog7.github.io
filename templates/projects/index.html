@@ -22,6 +22,7 @@
                 </div>
                 {% endif %}
             </div>
+            <span class="blogpost-date">First released on {{ entry["release_date"].strftime("%a %d %B %Y") }}</span> <br>
             {{ entry["html"] }}
             {% for link in entry["links"] %}
             <a href="{{ link["link"] }}" class="button a-reset" target="_blank" rel="noopener noreferrer">

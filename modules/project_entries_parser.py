@@ -2,6 +2,7 @@ from datetime import date
 from json import JSONDecoder
 from logging import Logger
 from markdown import Markdown
+from operator import itemgetter
 from pathlib import Path
 
 _COMPATIBILITY_BADGES = {
@@ -40,5 +41,5 @@ def parse_project_entries(path: Path, md: Markdown, logger: Logger) -> tuple[dic
                 "filename": file_path.name,
                 "release_date": date.strptime(md.Meta["release_date"][0], "%Y-%m-%d"),
             })
-    return tuple(ret)
+    return tuple(sorted(ret, key=itemgetter("release_date"), reverse=True))
 

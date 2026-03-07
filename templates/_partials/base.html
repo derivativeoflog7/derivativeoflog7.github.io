@@ -13,6 +13,16 @@
         <header class="width-limiter">
             <!-- For some reason you need .nowrap on these two or it will be in two lines for a moment when loading a page -->
             <div id="header-left" class="nowrap">
+                <!--<div id="header-nav-toggle" class="header-buttons">
+                    <label for="show-nav-checkbox" id="show-nav-label" class="material-symbols-outlined" title="Show navigation links">menu</label>
+                </div>
+                <div id="header-nav-toggle-tabbable" class="tabbable-menu">
+                    <input type="checkbox" name="show-nav" id="show-nav-checkbox">
+                    <label for="show-nav-checkbox">Show links</label>
+                </div>
+                <nav id="collapsable-nav">
+                    struzzo
+                </nav>-->
                 <div id="header-logo">
                     <a href="/" class="a-reset">derivativeoflog7</a>
                 </div>
@@ -22,7 +32,7 @@
                     <a class="{% block about_nav_class %}{% endblock %} a-reset" href="/about/">About</a>
                 </nav>
             </div>
-            <div id="header-buttons">
+            <div id="header-settings" class="header-buttons">
                 <noscript><div>
                         <label for="noscript-dialog-checkbox" id="noscript-dialog-label" class="material-symbols-outlined">warning</label>
                 </div></noscript>
@@ -36,7 +46,7 @@
                     <label for="color-scheme-dark-radio" id="color-scheme-dark-label" class="material-symbols-outlined" title="Force color scheme to dark">dark_mode</label>
                 </div>
             </div>
-            <div id="header-tabbable-section">
+            <div id="header-settings-tabbable" class="tabbable-menu">
                 <noscript>
                     <label for="noscript-dialog-checkbox">JavaScript warning</label>
                     <input type="checkbox" name="noscript-dialog" id="noscript-dialog-checkbox"><br>
@@ -53,15 +63,17 @@
             </div>
         </header>
         <hr>
-        <noscript>
-            <div id="noscript-dialog-div">
-                JavaScript is disabled, as such the site will not be able to save the page width and color scheme preferences and have them persist across pages. <br>
-                Note that JavaScript is not used for anything else on this website.
-                <label for="noscript-dialog-checkbox" class="button">Close</label>
-            </div>
-        </noscript>
         <main class="width-limiter">
             {% block content required%}{% endblock %}
         </main>
+        <noscript>
+            <div id="noscript-div">
+                <div id="noscript-dialog">
+                    JavaScript is disabled, as such the site will not be able to save the page width and color scheme preferences and have them persist across pages. <br>
+                    Note that JavaScript is not used for anything else on this website.
+                    <label for="noscript-dialog-checkbox" class="button">Close</label>
+                </div>
+            </div>
+        </noscript>
     </body>
 </html>

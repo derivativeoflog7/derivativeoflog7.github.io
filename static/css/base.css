@@ -6,11 +6,13 @@
     --LIGHT-noscript-warning-color: darkred;
     --LIGHT-link-color: blue;
     --LIGHT-hover-label-color: teal;
+    --LIGHT-checkbox-hover-label: darkgoldenrod;
     --DARK-background-color: #212327; /* Stolen from Google */
     --DARK-color: lightgray;
     --DARK-noscript-warning-color: red;
     --DARK-link-color: #99c3ff; /* Also stolen from Google */
     --DARK-hover-label-color: turquoise;
+    --DARK-checkbox-hover-label: yellow;
 }
 
 body {
@@ -88,6 +90,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
         --noscript-warning-color: var(--DARK-noscript-warning-color);
         --link-color: var(--DARK-link-color);
         --label-hover-color: var(--DARK-hover-label-color);
+        --checkbox-hover-label: var(--DARK-checkbox-hover-label);
     }
 }
 
@@ -98,6 +101,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
         --noscript-warning-color: var(--LIGHT-noscript-warning-color);
         --link-color: var(--LIGHT-link-color);
         --label-hover-color: var(--LIGHT-hover-label-color);
+        --checkbox-hover-label: var(--LIGHT-checkbox-hover-label);
     }
 }
 
@@ -107,6 +111,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     --noscript-warning-color: var(--LIGHT-noscript-warning-color);
     --link-color: var(--LIGHT-link-color);
     --label-hover-color: var(--LIGHT-hover-label-color);
+    --checkbox-hover-label: var(--LIGHT-checkbox-hover-label);
     #color-scheme-auto-label {
         display: initial;
     }
@@ -118,52 +123,89 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     --noscript-warning-color: var(--DARK-noscript-warning-color);
     --link-color: var(--DARK-link-color);
     --label-hover-color: var(--DARK-hover-label-color);
+    --checkbox-hover-label: var(--DARK-checkbox-hover-label);
     #color-scheme-light-label {
         display: initial;
     }
 }
 
 /***Noscript warning button and dialog***/
+#noscript-div {
+    display: none; /* Overridden by checkbox */
+    background:rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
 #noscript-dialog-label {
     color: var(--noscript-warning-color);
 }
 
-#noscript-dialog-div {
-    display: none; /* Overridden by checkbox */
+#noscript-dialog {
     /* The following 5 are for centering */
-    position: absolute; 
+    position: fixed; 
     left: 0; 
-    right: 0; 
+    right: 0;
+    top: 1em;
     margin-inline: auto; 
     width: fit-content;
     text-align: justify;
     max-width: 30em;
     border: 2px solid darkorange;
     border-radius: 5px;
-    padding: 0.1em;
+    padding: 0.3em;
     background-color: var(--background-color); /* Better way to do this? */
 }
 
-#noscript-dialog-div label {
+#noscript-dialog label {
     margin: auto;
     text-align: center;
     display: block;
     width: fit-content;
-    padding: 0.1em;
+    padding: 0.1em 0.3em;
 }
 
 :root:has(#noscript-dialog-checkbox:checked) {
-    #noscript-dialog-div {
+    #noscript-div {
         display: initial;
+    }
+
+    header, main {
+        user-select: none;
     }
 }
 
+:root:has(#noscript-dialog-checkbox:focus) {
+    #noscript-dialog label {
+        border-color: var(--checkbox-hover-label);
+    }
+}
+
+#noscript-dialog label:hover {
+    border-color: var(--link-color);
+}
+
+
+/* Collapsing nav links 
+:root:has(#show-nav-checkbox:checked) {
+    #collapsable-nav {
+        display: unset;
+    }
+}
+
+#collapsable-nav {
+    display: none; /* Overridden by checkbox */
+} */
+
 /* Make buttons in header unselectable */
-#header-buttons {
+.header-buttons {
     user-select: none;
 }
 
-#header-buttons label {
+.header-buttons label {
     font-size: 1.5em;
     cursor: pointer;
 }
@@ -176,30 +218,32 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 2em;
-    position: relative; /* for #header-tabbable-section to position correctly */
+    position: relative; /* for #header-settings-tabbable to position correctly */
 }
-
-header a:is(:hover, :focus) {
-    color: var(--link-color);
-    text-decoration: underline;
-}
-
 #header-buttons label:is(:hover, :focus) {
     color: var(--label-hover-color);
 } 
 
-#header-tabbable-section {
+#header-settings-tabbable {
     text-align: right;
-    position: absolute;
     right: 0;
     top: 0;
+}
+
+#header-nav-toggle-tabbable {
+    left: 0;
+    top: 0;
+}
+
+.tabbable-menu {
+    position: absolute;
     background-color: var(--background-color);
     border: 1px solid var(--color);
     border-radius: 5px;
     clip: rect(0,0,0,0);
 }
 
-#header-tabbable-section:has(:focus-visible) {
+.tabbable-menu:has(:focus-visible) {
     clip: unset;
 }
 
@@ -211,8 +255,8 @@ header a:is(:hover, :focus) {
     margin: auto 5px;
 }
 
-#header-nav > a.current {
-    text-decoration: underline var(--color) dashed !important;
+#header-nav > a.current:not(:hover) {
+    text-decoration: underline var(--color) dashed;
 }
 
 header div, header nav {
@@ -322,18 +366,19 @@ h1 {
     display: inline-block;
 }
 
-a:not(.a-reset) {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-a:not(.a-reset):is(:hover, :focus) {
-    text-decoration: underline;
-}
-
 .a-reset {
     color: unset;
     text-decoration: unset;
+}
+
+a:not(.a-reset) {
+    color: var(--link-color);
+    text-decoration: none; 
+}
+
+a:is(:hover, :focus) {
+    text-decoration: underline;
+    color: var(--link-color); /* Redundant due to .a-reset */
 }
 
 .width-limiter, .width-limiter *:not(.no-width-limit) { /* Also applies to children! */

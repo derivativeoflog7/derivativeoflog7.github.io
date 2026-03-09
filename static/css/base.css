@@ -188,18 +188,6 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     border-color: var(--link-color);
 }
 
-
-/* Collapsing nav links 
-:root:has(#show-nav-checkbox:checked) {
-    #collapsable-nav {
-        display: unset;
-    }
-}
-
-#collapsable-nav {
-    display: none; /* Overridden by checkbox */
-} */
-
 /* Make buttons in header unselectable */
 .header-buttons {
     user-select: none;
@@ -220,7 +208,8 @@ header {
     height: 2em;
     position: relative; /* for #header-settings-tabbable to position correctly */
 }
-#header-buttons label:is(:hover, :focus) {
+
+.header-buttons label:is(:hover, :focus) {
     color: var(--label-hover-color);
 } 
 

@@ -58,7 +58,7 @@ function tempCSS() {
     // Source - https://stackoverflow.com/a/524721
     // Posted by Christoph, modified by community. See post 'Timeline' for change history
     // Retrieved 2026-02-15, License - CC BY-SA 4.0
-    let css = `#header-buttons {display: none !important;} :root{ ${partial_css} }`,
+    let css = `:root{ ${partial_css} }`,
         head = document.head,
         style = document.createElement('style');
     style.id = "temp-css"

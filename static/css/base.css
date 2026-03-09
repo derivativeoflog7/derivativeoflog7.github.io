@@ -193,9 +193,11 @@ This is to avoid flashing colors when the page is still loading (I think, I have
     user-select: none;
 }
 
-.header-buttons label {
+.header-buttons label, label.header-buttons {
     font-size: 1.5em;
     cursor: pointer;
+    /*Prevents elements from being too wide while the font is still loading*/
+    max-width: 1em;
 }
 
 /***Header (except for buttons)***/
@@ -205,22 +207,18 @@ header {
     gap: 20px;
     align-items: center;
     justify-content: space-between;
-    height: 2em;
     position: relative; /* for #header-settings-tabbable to position correctly */
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
 }
 
-.header-buttons label:is(:hover, :focus) {
+label.header-buttons:is(:hover, :focus), .header-buttons label:is(:hover, :focus) {
     color: var(--label-hover-color);
 } 
 
 #header-settings-tabbable {
     text-align: right;
     right: 0;
-    top: 0;
-}
-
-#header-nav-toggle-tabbable {
-    left: 0;
     top: 0;
 }
 
@@ -250,7 +248,43 @@ header {
 
 header div, header nav {
     display: inline;
+}
+
+header label, header div, header nav {
     vertical-align: middle;
+}
+
+#header-logo-and-nav > nav {
+    vertical-align: sub;
+}
+
+/**Collapsable nav**/
+@media (max-width: 450px) {
+    #header-left label {
+        display: inline-block;
+    }
+
+    #header-logo-and-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1em;
+    }
+
+    :root:has(#collapsable-nav-checkbox:checked) {
+        #show-collapsable-nav-label {
+            display: none;
+        }
+    }
+
+    :root:has(#collapsable-nav-checkbox:not(:checked)) {
+        #header-nav {
+            display: none;
+        }
+        
+        #hide-collapsable-nav-label {
+            display: none;
+        }
+    }
 }
 
 /***Projects page***/
@@ -324,7 +358,6 @@ header div, header nav {
 
 #rss-link-icon {
     color: orange;
-    width: 1em /* Avoids having the element too wide while the font is still loading*/
 }
 
 /* Ugly(?) hack to avoid havint the space between the icon and text have an underline when hovered*/
@@ -370,7 +403,7 @@ a:is(:hover, :focus) {
     color: var(--link-color); /* Redundant due to .a-reset */
 }
 
-.width-limiter, .width-limiter *:not(.no-width-limit) { /* Also applies to children! */
+.width-limiter, .width-limiter img:not(.no-width-limit) { /* Also applies to children! */
     max-width: min(var(--width-limit), calc(100vw - 1rem));
 }
 
@@ -380,4 +413,8 @@ a:is(:hover, :focus) {
 
 .nowrap {
     white-space: nowrap;
+}
+
+.display-none {
+    display: none;
 }

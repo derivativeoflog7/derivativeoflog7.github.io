@@ -12,9 +12,14 @@
     <body onload="loadSettings()">
         <header class="width-limiter">
             <!-- For some reason you need .nowrap on these two or it will be in two lines for a moment when loading a page -->
-            <div id="header-left" class="nowrap">
-                <div id="header-logo">
-                    <a href="/" class="a-reset">derivativeoflog7</a>
+            <div id="header-logo-and-nav" class="nowrap">
+                <div id="header-left">
+                    <label for="collapsable-nav-checkbox" id="show-collapsable-nav-label" class="material-symbols-outlined header-buttons display-none" title="Show navigation links">menu</label>
+                    <label for="collapsable-nav-checkbox" id="hide-collapsable-nav-label" class="material-symbols-outlined header-buttons display-none" title="Hide navigation links">menu_open</label>
+                    <input type="checkbox" name="collapsable-nav" id="collapsable-nav-checkbox" class="display-none">
+                    <div id="header-logo">
+                        <a href="/" class="a-reset">derivativeoflog7</a>
+                    </div>
                 </div>
                 <nav id="header-nav" class="nowrap">
                     <a class="{% block projects_nav_class %}{% endblock %} a-reset" href="/projects/">Projects</a>

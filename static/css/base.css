@@ -262,12 +262,13 @@ header label, header div, header nav {
 @media (max-width: 450px) {
     #header-left label {
         display: inline-block;
+        margin-right: 0.1em;
     }
 
     #header-logo-and-nav {
         display: flex;
         flex-direction: column;
-        gap: 0.1em;
+        gap: 0.2em;
     }
 
     :root:has(#collapsable-nav-checkbox:checked) {

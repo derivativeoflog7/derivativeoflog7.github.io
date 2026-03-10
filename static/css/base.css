@@ -276,6 +276,10 @@ header label, header div, header nav {
         }
     }
 
+    header:has(:focus) nav {
+        display: unset !important;
+    }
+
     :root:has(#collapsable-nav-checkbox:not(:checked)) {
         #header-nav {
             display: none;

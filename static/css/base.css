@@ -277,7 +277,7 @@ header label, header div, header nav {
         }
     }
 
-    header:has(:focus) nav {
+    header:has(:focus-visible) nav {
         display: unset !important;
     }
 

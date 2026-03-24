@@ -162,6 +162,7 @@ This is to avoid flashing colors when the page is still loading (I think, I have
 
 #noscript-dialog label {
     margin: auto;
+    margin-top: 0.3em;
     text-align: center;
     display: block;
     width: fit-content;

@@ -1,0 +1,100 @@
+:root {
+    --WIDTH-LIMIT: 45rem;
+    --width-limit: var(--WIDTH-LIMIT);
+    --LIGHT-background-color: white;
+    --LIGHT-color: black;
+    --LIGHT-noscript-warning-color: darkred;
+    --LIGHT-link-color: blue;
+    --LIGHT-hover-label-color: teal;
+    --LIGHT-checkbox-hover-label: darkgoldenrod;
+    --DARK-background-color: #212327; /* Stolen from Google */
+    --DARK-color: lightgray;
+    --DARK-noscript-warning-color: red;
+    --DARK-link-color: #99c3ff; /* Also stolen from Google */
+    --DARK-hover-label-color: turquoise;
+    --DARK-checkbox-hover-label: yellow;
+}
+
+/***Page width button***/
+#wide-checked-label {
+    display: none;
+}
+
+:root:has(#wide-checkbox:checked) {
+    --width-limit: initial;
+
+    #wide-checked-label {
+        display: initial;
+    }
+
+    #wide-unchecked-label {
+        display: none;
+    }
+}
+
+@media (max-width: 46rem) { /* --WIDTH-LIMIT + 1em */
+    .hide-when-narrow {
+        display: none !important;
+    }
+}
+
+/***Color scheme toggle***/
+/* Hide all labels by default*/
+#color-scheme-toggle label { 
+    display: none
+}
+
+/* Labels are shown in order Auto→Dark→White */
+:root:has(#color-scheme-auto-radio:checked) {
+    #color-scheme-dark-label {
+        display: initial;
+    }
+}
+
+/* Auto radio doesn't actually control these two, they're "default" and get overridden if needed 
+This is to avoid flashing colors when the page is still loading (I think, I haven't confirmed it)*/
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: var(--DARK-background-color);
+        --color: var(--DARK-color);
+        --noscript-warning-color: var(--DARK-noscript-warning-color);
+        --link-color: var(--DARK-link-color);
+        --label-hover-color: var(--DARK-hover-label-color);
+        --checkbox-hover-label: var(--DARK-checkbox-hover-label);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: var(--LIGHT-background-color);
+        --color: var(--LIGHT-color);
+        --noscript-warning-color: var(--LIGHT-noscript-warning-color);
+        --link-color: var(--LIGHT-link-color);
+        --label-hover-color: var(--LIGHT-hover-label-color);
+        --checkbox-hover-label: var(--LIGHT-checkbox-hover-label);
+    }
+}
+
+:root:has(#color-scheme-light-radio:checked) {
+    --background-color: var(--LIGHT-background-color);
+    --color: var(--LIGHT-color);
+    --noscript-warning-color: var(--LIGHT-noscript-warning-color);
+    --link-color: var(--LIGHT-link-color);
+    --label-hover-color: var(--LIGHT-hover-label-color);
+    --checkbox-hover-label: var(--LIGHT-checkbox-hover-label);
+    #color-scheme-auto-label {
+        display: initial;
+    }
+}
+
+:root:has(#color-scheme-dark-radio:checked) {
+    --background-color: var(--DARK-background-color);
+    --color: var(--DARK-color);
+    --noscript-warning-color: var(--DARK-noscript-warning-color);
+    --link-color: var(--DARK-link-color);
+    --label-hover-color: var(--DARK-hover-label-color);
+    --checkbox-hover-label: var(--DARK-checkbox-hover-label);
+    #color-scheme-light-label {
+        display: initial;
+    }
+}

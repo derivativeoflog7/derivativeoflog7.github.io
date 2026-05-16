@@ -1,0 +1,118 @@
+/* Make buttons in header unselectable */
+.header-buttons {
+    user-select: none;
+}
+
+.header-buttons label, label.header-buttons {
+    font-size: 1.5em;
+    cursor: pointer;
+    /*Prevents elements from being too wide while the font is still loading*/
+    max-width: 1em;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* for #header-settings-tabbable to position correctly */
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+label.header-buttons:is(:hover, :focus), .header-buttons label:is(:hover, :focus) {
+    color: var(--label-hover-color);
+} 
+
+#header-settings-tabbable {
+    margin: 3px;
+    text-align: right;
+    right: 0;
+    top: 0;
+}
+
+#header-settings-tabbable hr {
+	margin: 5px auto;
+}
+
+/*This makes it look a bit more balanced*/
+#header-settings-tabbable label {
+	margin-left: 0.15em;
+}
+
+#header-settings-tabbable input {
+	vertical-align: sub;
+}
+
+#header-logo {
+    font-size: 140%;
+}
+
+#header-nav > a {
+    margin: auto 5px;
+}
+
+#header-nav > a.current:not(:hover) {
+    text-decoration: underline var(--color) dashed;
+}
+
+header div:not(#header-settings-tabbable div), header nav {
+    display: inline;
+}
+
+header label, header div, header nav {
+    vertical-align: middle;
+}
+
+#header-logo-and-nav > nav {
+    vertical-align: sub;
+}
+
+/**Collapsable nav**/
+@media (max-width: 450px) {
+    #header-left label {
+        display: inline-block;
+        margin-right: 0.1em;
+    }
+
+    #header-logo-and-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2em;
+    }
+
+    :root:has(#collapsable-nav-checkbox:checked) {
+        #show-collapsable-nav-label {
+            display: none;
+        }
+    }
+
+    header:has(:focus-visible) nav {
+        display: unset !important;
+    }
+
+    :root:has(#collapsable-nav-checkbox:not(:checked)) {
+        #header-nav {
+            display: none;
+        }
+        
+        #hide-collapsable-nav-label {
+            display: none;
+        }
+    }
+}
+
+/* These two stay here for now as only the header uses it */
+.tabbable-menu {
+    position: absolute;
+    background-color: var(--background-color);
+    border: 1px solid var(--color);
+    border-radius: 5px;
+    clip: rect(0,0,0,0);
+	padding: 5px;
+}
+
+.tabbable-menu:has(:focus-visible) {
+    clip: unset;
+}

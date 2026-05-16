@@ -1,6 +1,10 @@
 {% extends "_partials/base.html" %}
 {% block title %}{{ title }}{% endblock %}
 {% block blog_nav_class %}current{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/css/blog.css">
+{% endblock %}
 {% block content %}
     <h1 id="blogpost-title">{{ title }}</h1>
     <span class="blogpost-date">{{ date.strftime("%a %d %B %Y") }}</span>

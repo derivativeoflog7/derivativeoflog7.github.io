@@ -5,7 +5,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title required %}{% endblock %}</title>
-        <link rel="stylesheet" href="/css/base.css">
+        <link rel="stylesheet" href="/css/settings.css">
+        <link rel="stylesheet" href="/css/common.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/noscript.css">
         <script src="/js/settings.js"></script>
         {% endblock %}
     </head>
@@ -31,7 +34,7 @@
                 <noscript><div>
                         <label for="noscript-dialog-checkbox" id="noscript-dialog-label" class="material-symbols-outlined">warning</label>
                 </div></noscript>
-                <div id="wide-toggle">
+                <div id="wide-toggle" class="hide-when-narrow">
                     <label for="wide-checkbox" id="wide-unchecked-label" class="material-symbols-outlined" title="Toggle page width">fit_page_width</label>
                     <label for="wide-checkbox" id="wide-checked-label" class="material-symbols-outlined" title="Toggle page width">width_normal</label>
                 </div>
@@ -42,19 +45,31 @@
                 </div>
             </div>
             <div id="header-settings-tabbable" class="tabbable-menu">
-                <noscript>
-                    <label for="noscript-dialog-checkbox">JavaScript warning</label>
-                    <input type="checkbox" name="noscript-dialog" id="noscript-dialog-checkbox"><br>
-                </noscript>
-                <label for="wide-checkbox">Wide page</label>
-                <input type="checkbox" name="wide" id="wide-checkbox" onchange="saveSettings()"><br>
+                <div id="header-settings-tabbable-top-section">
+                    <noscript>
+                        <div>
+                            <label for="noscript-dialog-checkbox">JavaScript warning</label>
+                            <input type="checkbox" name="noscript-dialog" id="noscript-dialog-checkbox">
+                        </div>
+                    </noscript>
+                    <div class="hide-when-narrow">
+                        <label for="wide-checkbox">Wide page</label>
+                        <input type="checkbox" name="wide" id="wide-checkbox" onchange="saveSettings()">
+                    </div>
+                </div>
                 <hr>
-                <label for="color-scheme-light-radio">Light color scheme</label>
-                <input type="radio" name="color-scheme" id="color-scheme-light-radio" value="light" onclick="saveSettings()"><br>
-                <label for="color-scheme-auto-radio">Auto color scheme</label>
-                <input type="radio" name="color-scheme" id="color-scheme-auto-radio" value="auto" onclick="saveSettings()" checked><br>
-                <label for="color-scheme-dark-radio">Dark color scheme</label>
-                <input type="radio" name="color-scheme" id="color-scheme-dark-radio" value="dark" onclick="saveSettings()">
+                <div>
+                    <label for="color-scheme-light-radio">Light color scheme</label>
+                    <input type="radio" name="color-scheme" id="color-scheme-light-radio" value="light" onclick="saveSettings()">
+                </div>
+                <div>
+                    <label for="color-scheme-auto-radio">Auto color scheme</label>
+                    <input type="radio" name="color-scheme" id="color-scheme-auto-radio" value="auto" onclick="saveSettings()" checked>
+                </div>
+                <div>
+                    <label for="color-scheme-dark-radio">Dark color scheme</label>
+                    <input type="radio" name="color-scheme" id="color-scheme-dark-radio" value="dark" onclick="saveSettings()">
+                </div>
             </div>
         </header>
         <hr>

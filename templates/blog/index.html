@@ -1,6 +1,10 @@
 {% extends "_partials/rss_base.html" %}
 {% block title %}Blog - derivativeoflog7{% endblock %}
 {% block blog_nav_class %}current{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/css/blog.css">
+{% endblock %}
 {% block content2 %}
     {% for post in blogposts %}
         <article class="margin-bottom-1em">

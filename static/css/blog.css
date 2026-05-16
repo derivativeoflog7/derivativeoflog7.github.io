@@ -1,0 +1,16 @@
+.blogpost-date {
+    font-size: 0.85em;
+}
+
+.blogpost-link h1 {
+    margin-top: 0;
+}
+
+#blogpost-title {
+    margin-top: 0;
+    margin-bottom: 0.1em;
+    font-family: "Georgia", serif;
+    font-weight: revert;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}

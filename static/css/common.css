@@ -1,0 +1,97 @@
+body {
+    background-color: var(--background-color);
+    color: var(--color);
+}
+
+/***Fonts***/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    src: url(/fonts/MaterialSymbolsOutlined.woff2) format('woff');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+/***RSS link***/
+#rss-link * {
+    vertical-align: middle;
+}
+
+#rss-link-icon {
+    color: orange;
+    max-width: 1em;
+}
+
+/* Ugly(?) hack to avoid having the space between the icon and text have an underline when hovered*/
+#rss-link-text {
+    color: var(--link-color);
+}
+
+#rss-link:is(:hover, :focus) * {
+    color: var(--link-color);
+}
+
+#rss-link-text:is(:hover, :focus) {
+    text-decoration: underline;
+}
+
+/***Misc/generic***/
+.margin-bottom-1em {
+    margin-bottom: 1em;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+.button {
+    border: 1px solid var(--color);
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.a-reset {
+    color: unset;
+    text-decoration: unset;
+}
+
+a:not(.a-reset) {
+    color: var(--link-color);
+    text-decoration: none; 
+}
+
+a:is(:hover, :focus) {
+    text-decoration: underline;
+    color: var(--link-color); /* Redundant due to .a-reset */
+}
+
+.width-limiter, .width-limiter img:not(.no-width-limit) { /* Also applies to children! */
+    max-width: min(var(--width-limit), calc(100vw - 1rem));
+}
+
+.width-limiter { /* Centers */
+    margin: auto;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.display-none {
+    display: none !important;
+}

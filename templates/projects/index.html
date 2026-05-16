@@ -1,6 +1,10 @@
 {% extends "_partials/rss_base.html" %}
 {% block title %}My projects - derivativeoflog7{% endblock %}
 {% block projects_nav_class %}current{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/css/projects.css">
+{% endblock %}
 {% block content2 %}
     {% for entry in project_entries %}
         <article class="project-entry margin-bottom-1em" id="{{ entry["filename"][:-3] }}">

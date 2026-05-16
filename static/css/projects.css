@@ -1,0 +1,44 @@
+.project-title-container > * {
+    vertical-align: middle;
+}
+
+.project-entry h1 {
+    margin-bottom: 0;
+    display: inline;
+}
+
+.project-entry p, .project-entry ul {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.project-entry .button {
+    font-size: 1.1em;
+    padding: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+.project-entry .button:is(:hover, :focus) {
+    border-color: var(--link-color);
+}
+
+.compatibility-badges {
+    display: inline-block;
+    height: 2.5em;
+}
+
+.compatibility-badges a, .compatibility-badges img {
+    border: 1px solid transparent;
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.compatibility-badges img {
+    object-fit: contain;
+    box-sizing: border-box;
+}
+
+.compatibility-badges a:is(:hover, :focus) {
+    border-color: var(--link-color);
+}

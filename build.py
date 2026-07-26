@@ -23,7 +23,8 @@ md = Markdown(
     output_format="html",
     extensions = (
         "meta",
-        "toc"
+        "toc",
+        "pymarkdown-video"
     )
 )
 md.inlinePatterns.register(markdown_extensions.ExtendendLinkInlineProcessor(inlinepatterns.LINK_RE, md), "extended_link", 161)

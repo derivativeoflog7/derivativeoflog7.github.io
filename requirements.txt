@@ -1,3 +1,4 @@
 staticjinja
 markdown
 pyrss2gen
+pymarkdown-video

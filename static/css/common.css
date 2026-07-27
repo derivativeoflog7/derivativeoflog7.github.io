@@ -80,7 +80,7 @@ a:is(:hover, :focus) {
     color: var(--link-color); /* Redundant due to .a-reset */
 }
 
-.width-limiter, .width-limiter img:not(.no-width-limit) { /* Also applies to children! */
+.width-limiter, .width-limiter img:not(.no-width-limit), .width-limiter iframe {
     max-width: min(var(--width-limit), calc(100vw - 1rem));
 }
 

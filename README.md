@@ -4,9 +4,9 @@ This website hosts an unmodified copy of the [Google Material Symbols](https://f
 
 # Credits
 [Ingunar](https://github.com/Ingunar): Unofficial [Aroma](https://aroma.foryour.cafe/) logo  
-[cemu-project](https://github.com/cemu-project): [Cemu logo](https://github.com/cemu-project/Cemu/blob/main/src/resource/logo_icon.png)  
-[The PCSX2 team](https://github.com/PCSX2): PCSX2 logo; PCSX2 is licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)  
-[Sony Interactive Entertainment](https://sonyinteractive.com): PlayStation 2 logo
+[The Cemu team](https://github.com/cemu-project): [Cemu logo](https://github.com/cemu-project/Cemu/blob/main/src/resource/logo_icon.png); Cemu is licensed under [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/)  
+[The PCSX2 team](https://github.com/PCSX2): [PCSX2 logo](https://github.com/PCSX2/pcsx2/blob/master/pcsx2-qt/resources/icons/AppIcon64.png); PCSX2 is licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)  
+[Sony Interactive Entertainment](https://sonyinteractive.com), [Wikimedia contributors](https://commons.wikimedia.org/wiki/File:PlayStation_2_logo.svg): PlayStation 2 logo
 
 # License
 **Apart from the Google Material Symbols fonts and other elements listed above, and any files that state otherwise**, the code of this repo is licensed under the [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.html) license, the content of the blogposts under the [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license, and the vector images under the [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) license.

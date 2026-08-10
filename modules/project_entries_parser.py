@@ -30,7 +30,7 @@ _COMPATIBILITY_BADGES = {
         "link": "https://pcsx2.net/"
     },
     "ps2": {
-        "name": "PS2",
+        "name": "PlayStation 2",
         "image_src": "https://upload.wikimedia.org/wikipedia/commons/7/76/PlayStation_2_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
     }
 }

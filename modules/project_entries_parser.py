@@ -24,6 +24,15 @@ _COMPATIBILITY_BADGES = {
         "image_src": "https://raw.githubusercontent.com/cemu-project/Cemu/refs/heads/main/src/resource/logo_icon.png",
         "link": "https://cemu.info/"
     },
+    "pcsx2": {
+        "name": "PCSX2",
+        "image_src": "https://raw.githubusercontent.com/PCSX2/pcsx2/refs/heads/master/pcsx2-qt/resources/icons/AppIcon64.png",
+        "link": "https://pcsx2.net/"
+    },
+    "ps2": {
+        "name": "PS2",
+        "image_src": "https://upload.wikimedia.org/wikipedia/commons/7/76/PlayStation_2_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+    }
 }
 
 def parse_project_entries(path: Path, md: Markdown, logger: Logger) -> tuple[dict, ...]:

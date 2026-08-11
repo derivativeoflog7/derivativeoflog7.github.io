@@ -29,9 +29,15 @@ _COMPATIBILITY_BADGES = {
         "image_src": "https://raw.githubusercontent.com/PCSX2/pcsx2/refs/heads/master/pcsx2-qt/resources/icons/AppIcon64.png",
         "link": "https://pcsx2.net/"
     },
-    "ps2": {
-        "name": "PlayStation 2",
-        "image_src": "https://upload.wikimedia.org/wikipedia/commons/7/76/PlayStation_2_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+    "cdps2": {
+        "name": "Cheat Device for PS2",
+        "image_src": "/img/compatibility_badges/cdps2.png",
+        "link": "https://github.com/israpps/CheatDevicePS2/"
+    },
+    "opl": {
+        "name": "OpenPS2Loader",
+        "image_src": "/img/compatibility_badges/opl.png",
+        "link": "https://github.com/ps2homebrew/Open-PS2-Loader"
     }
 }
 

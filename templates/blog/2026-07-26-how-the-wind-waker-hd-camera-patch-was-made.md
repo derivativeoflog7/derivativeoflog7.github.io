@@ -67,7 +67,7 @@ Now if you ask me, associating the vertical movement of the right stick to zoomi
 Anyway, all I needed to do now was write some custom code that inverts the Y axis reading only if, say, the zoom in target angle is smaller than the zoom out target angle (doing it this way ensures it only applies to the few places that have the axis inverted compared to the overworld).  
 By looking at Ghidra, I determined that the ideal location for this was actually right after the instruction that reads the Y axis in the camera function, as at that point the code has already determined the final value for the target angles (there are some conditional statements, whose logic or reasoning I didn't bother figuring out, that set target angles manually instead of using the ones passed to the function), but has yet to perform any calculations on any of the data (the first data it does calculations on is, in fact, the Y axis reading, so I was afraid that negating the reading further down could cause unintended side effects).
 
-And so I wrote a tiny snippet of assembly that compares the target angles and negates the Y axis reading only if the zoom out angle is smaller than the zoom in angle, and... this too worked! 
+And so I made the game jump to a tiny snippet of assembly that compares the target angles and negates the Y axis reading only if the zoom out angle is smaller than the zoom in angle and... this too worked! 
 
 And then I spent a few extra days adding this patch to the Aroma plugin, as I couldn't for the life of me figure out how to use libfunctionpatcher for it.
 

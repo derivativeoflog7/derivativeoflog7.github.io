@@ -13,7 +13,7 @@ So, the very next day, armed with Cemu on my PC and absolutely no prior knowledg
 The first thing I thought to do was to find any and all memory locations where the game stores the reading of the Y axis of the right stick, so that I could study how the game uses it and either negate it, or make a patch to have the code responsible for moving the camera read it as negated.  
 (I do know from experience that memory locations **will** move around between different sessions due to memory being allocated differently)
 
-I immediately jumped to Cheat Engine (which means that I was using Windows for this), knowing from experience that stick readings are usually stored either as a float/double ranging from -1 to +1, or as an integer where 0 is the lowest position, and whatever the maximum value of the data type the code is using as the highest position, or vice versa.  
+I immediately jumped to Cheat Engine (which means that I was using Windows for this), knowing from experience that stick readings are usually stored either as a float/double ranging from -1 to +1, or as an integer where 0 is the lowest position, and whatever the maximum value of the data type the code is using is the highest position, or vice versa.  
 But after a few minutes of not being able to find anything, I remembered PowerPC is big endian, so even if I did find anything, it likely wouldn't've been useful.
 
 I dug around the Cemu UI a bit, and found out that it supports logging for different things, including internal CafeOS modules that are reimplemented in the emulator, one of them being *Input API*, and that by enabling it the emulator starts dumping logs regarding the *VPAD*, which is how code on the Wii U calls the Gamepad.
@@ -54,7 +54,7 @@ Unfortunately, due to the sheer complexity of this code, and the numerous functi
 
 So instead, I tried looking at the floating point registers, noting down their values both on the island and inside the minigame location, and seeing if I could spot anything interesting.  
 ![FP registers comparison](/img/blog/2026-07-26/fp1.png)  
-(ignore the right column, those are previous values the registers used to contain, the current ones are on the left)  
+
 FP26 caught my eye, as it was the only one whose sign would invert between the two locations and remain constant inside a location, and I soon realized that if I manually changed it's value while holding the stick up, it would cause the camera to move towards a different angle, with positive values making the camera move above Link, and negative values below.  
 So I used Ghidra to find other locations where that register is used in, and I found it being passed as a parameter to a function being called, along with another variable that's loaded into a register right before branching.  
 ![Function in Ghidra](/img/blog/2026-07-26/ghidra2.png)  
